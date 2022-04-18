@@ -1,10 +1,11 @@
-import React from "react"
+import React from "react";
+import Index from "./views/Index";
 
 function App() {
   return (
-    <div className="container">
-      Hola buenas noches
-    </div>
+    <>
+      <Index />
+    </>
   );
 }
 
