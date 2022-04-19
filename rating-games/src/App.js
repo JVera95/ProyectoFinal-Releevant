@@ -1,11 +1,14 @@
 import React from "react";
-import Index from "./views/Index";
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <>
-      <Index />
-    </>
+    <div>
+      <Navbar />
+      <hr />
+      <Outlet />
+    </div>
   );
 }
 
