@@ -1,3 +1,11 @@
+import Navbar from "../components/Navbar";
+
 export default function Nint() {
-  return <h1>Nintendo view!!!</h1>;
+  return (
+    <>
+      <Navbar />
+      <hr />
+      <h1>Nintendo view!!!</h1>;
+    </>
+  );
 }

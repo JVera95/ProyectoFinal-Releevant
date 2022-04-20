@@ -1,3 +1,11 @@
+import Navbar from "../components/Navbar";
+
 export default function Xbox() {
-  return <h1>Xbox view!!!</h1>;
+  return (
+    <>
+      <Navbar />
+      <hr />
+      <h1>Xbox view!!!</h1>;
+    </>
+  );
 }

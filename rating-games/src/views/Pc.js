@@ -1,3 +1,11 @@
+import Navbar from "../components/Navbar";
+
 export default function Pc() {
-  return <h1>Pc view!!!</h1>;
+  return (
+    <>
+      <Navbar />
+      <hr />
+      <h1>Pc view!!!</h1>;
+    </>
+  );
 }

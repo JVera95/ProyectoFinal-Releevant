@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Index from "./views/Index";
+import Index from "./views/Index/Index";
 import Ps from "./views/Ps";
 import Xbox from "./views/Xbox";
 import Nint from "./views/Nint";
