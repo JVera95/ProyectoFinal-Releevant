@@ -5,7 +5,7 @@ export default function Xbox() {
     <>
       <Navbar />
       <hr />
-      <h1>Xbox view!!!</h1>;
+      <h1>Xbox view!!!</h1>
     </>
   );
 }

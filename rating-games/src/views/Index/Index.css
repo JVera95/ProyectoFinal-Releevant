@@ -1,46 +1,86 @@
-.playstation {
-    height: 710px;
-    width: 379px;
-    border: 3px solid rgb(0, 115, 255);
-    float: left
-}
-
-.xbox {
-    height: 710px;
-    width: 379px;
-    border: 3px solid rgb(15, 223, 19);
-    float: left
-}
-
-.nintendo {
-    height: 710px;
-    width: 379px;
-    border: 3px solid rgb(255, 0, 0);
-    float: left
-}
-
-.pc {
-    height: 710px;
-    width: 379px;
-    border: 3px solid rgb(0, 0, 0);
-    float: left
-}
-
 .playlogo {
-    width: 150px;
+    width: 120px;
+
+    transition: all 1s ease;
 }
 
 .xboxlogo {
-    width: 150px;
+    width: 100px;
 
+    transition: all 1s ease;
 }
 
-.nintendologo{
-    width: 150px;
+.nintlogo{
+    width: 100px;
 
+    transition: all 1s ease;
 }
 
 .pclogo{
-    width: 150px;
+    width: 175px;
 
+    transition: all 1s ease;
+}
+
+.animation {
+    margin: auto;
+    width: 500px;
+    height: 50vh;
+    padding: 15px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+  
+.frame {
+   transition: all 1s ease;
+}
+  
+.frame:hover {
+    transform:scale(1.3);
+}
+
+.choose {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.fa {
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.fa-angle-double-down:before {content: "\f107";}
+
+.bounce {
+	animation: bounce 2s infinite;
+	-webkit-animation: bounce 2s infinite;
+	-moz-animation: bounce 2s infinite;
+	-o-animation: bounce 2s infinite;
+}
+ 
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}	
+	40% {-webkit-transform: translateY(-30px);}
+	60% {-webkit-transform: translateY(-15px);}
+}
+ 
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateY(-30px);}
+	60% {-moz-transform: translateY(-15px);}
+}
+ 
+@-o-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+	40% {-o-transform: translateY(-30px);}
+	60% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
 }

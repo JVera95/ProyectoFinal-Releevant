@@ -5,7 +5,7 @@ export default function Pc() {
     <>
       <Navbar />
       <hr />
-      <h1>Pc view!!!</h1>;
+      <h1>Pc view!!!</h1>
     </>
   );
 }

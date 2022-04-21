@@ -5,7 +5,7 @@ export default function Ps() {
     <>
       <Navbar />
       <hr />
-      <h1>Playstation view!!!</h1>;
+      <h1>Playstation view!!!</h1>
     </>
   );
 }

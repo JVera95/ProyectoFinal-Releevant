@@ -22,6 +22,12 @@ export default function Navbar() {
       <NavLink to="/game" className="btn btn-warning">
         Game
       </NavLink>
+      <NavLink to="/login" className="btn btn-info">
+        Login
+      </NavLink>
+      <NavLink to="/register" className="btn btn-info">
+        Register
+      </NavLink>
     </div>
   );
 }

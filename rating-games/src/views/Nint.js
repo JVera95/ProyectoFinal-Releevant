@@ -5,7 +5,7 @@ export default function Nint() {
     <>
       <Navbar />
       <hr />
-      <h1>Nintendo view!!!</h1>;
+      <h1>Nintendo view!!!</h1>
     </>
   );
 }

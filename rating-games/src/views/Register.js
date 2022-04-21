@@ -1,11 +1,11 @@
 import Navbar from "../components/Navbar";
 
-export default function Game() {
+export default function Register() {
   return (
     <>
       <Navbar />
       <hr />
-      <h1>Game view!!!</h1>
+      <h1>Register view!!!</h1>
     </>
   );
 }
