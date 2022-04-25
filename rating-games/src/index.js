@@ -12,6 +12,7 @@ import Pc from "./views/Pc";
 import Game from "./views/Game";
 import Login from "./views/Login";
 import Register from "./views/Register";
+import Toprating from "./views/Toprating";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
         <Route path="/nint" element={<Nint />} />
         <Route path="/pc" element={<Pc />} />
         <Route path="/game" element={<Game />} />
+        <Route path="/toprating" element={<Toprating />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>

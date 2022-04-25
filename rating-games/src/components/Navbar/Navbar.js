@@ -22,6 +22,9 @@ export default function Navbar() {
       <NavLink to="/game" className="btn btn-warning">
         Game
       </NavLink>
+      <NavLink to="/toprating" className="btn btn-warning">
+        Top Rating
+      </NavLink>
       <NavLink to="/login" className="btn btn-info">
         Login
       </NavLink>

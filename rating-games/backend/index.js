@@ -124,6 +124,61 @@ app.get("/company", function (req, res) {
   );
 });
 
+// ----------------Sacar toda la información de los juegos-------------------
+
+app.get("/todo", function (req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+  /* response.send({ msg: "This has CORS enabled" }); */
+  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+    if (err) throw err;
+
+    let database = client.db("RatingGames");
+
+    database
+      .collection("Games")
+      .find()
+      .toArray((err, results) => {
+        if (err) throw err;
+
+        results.forEach((value) => {
+          console.log(value);
+        });
+        res.json(results);
+      });
+  });
+});
+
+// -----------------Sacar los juegos de mayor a menor rating-----------------
+
+app.get("/toprating", function (req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+  /* response.send({ msg: "This has CORS enabled" }); */
+  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+    if (err) throw err;
+
+    let database = client.db("RatingGames");
+
+    let information = [];
+
+    database
+      .collection("Games")
+      .find()
+      .sort({ rating: -1 })
+      .toArray((err, results) => {
+        if (err) throw err;
+
+        results.forEach((games) => {
+          let game = {
+            title: games.title,
+            rating: games.rating,
+          };
+          information.push(game);
+        });
+        res.json(information);
+      });
+  });
+});
+
 // --------------------------------------------------------------------------
 
 app.listen(8080);
