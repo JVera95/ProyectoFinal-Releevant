@@ -181,4 +181,29 @@ app.get("/toprating", function (req, res) {
 
 // --------------------------------------------------------------------------
 
+app.post("/register", function (req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+  /* response.send({ msg: "This has CORS enabled" }); */
+  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+    if (err) throw err;
+
+    let database = client.db("RatingGames");
+
+    database
+      .collection("Users")
+      .find()
+      .toArray((err, results) => {
+        if (err) throw err;
+
+        results.forEach((value) => {
+          console.log(value);
+        });
+        res.json(results);
+      });
+  });
+});
+
+// --------------------------------------------------------------------------
+
+
 app.listen(8080);

@@ -18,7 +18,7 @@ export default function LoginContextProvider({ children }) {
     if (user.email === "pepe@mail.com" && user.password === "1234") {
       setLogin(user);
     } else {
-      setErrorMessage("Error al introducil las credenciales");
+      setErrorMessage("Error al introducil los datos");
     }
   }
 

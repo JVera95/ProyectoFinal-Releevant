@@ -16,15 +16,15 @@ export default function Game() {
   return (
     <>
       <Navbar />
-      <div className="row font-monospace">
+      <div className="container">
         {games?.map((game) => (
           <div
-            className="m-auto my-5 col-sm-6"
-            style={{ width: "18rem" }}
+            className="mt-5"
+            style={{ width: "25%" }}
             key={game._id}
           >
-            <img src={game.cover} className="card-img-top" alt="" />
-            <div className="card-body">
+            <img src={game.cover} width="100%" alt="game cover" />
+            <div className="m-auto">
               <h5 className="card-title">{game.title}</h5>
               <p className="card-text">{game.rating}</p>
               <p className="card-text">{game.genre}</p>
@@ -33,16 +33,6 @@ export default function Game() {
               <p className="card-text">{game.synopsis}</p>
               <p className="card-text">{game.gameModes}</p>
               <p className="card-text">{game.date}</p>
-              {/* <iframe
-                className="container"
-                width="100%"
-                height="360"
-                src={game.trailer}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe> */}
             </div>
           </div>
         ))}
