@@ -24,7 +24,7 @@ root.render(
         <Route path="/xbox" element={<Xbox />} />
         <Route path="/nint" element={<Nint />} />
         <Route path="/pc" element={<Pc />} />
-        <Route path="/game" element={<Game />} />
+        <Route path="/game/:_id" element={<Game />} />
         <Route path="/toprating" element={<Toprating />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

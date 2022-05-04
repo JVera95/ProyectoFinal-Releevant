@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 const client = new MongoClient("mongodb://127.0.0.1:27017");
+const cors = require("cors");
+const jwt = require("jsonwebtoken");
 
 async function conectar() {
   await client.connect();
@@ -23,19 +25,74 @@ function find(baseDatos, collection, filtro, execute, callback, error) {
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
+app.use(cors());
 
-// -------------------Sacar juegos que sean de PC----------------------------
+// -------------------Sacar juegos de plataformas especificas----------------------------
 
-app.get("/platform", function (req, res) {
+app.get("/pc/:PC", function (req, res) {
+  let PC = req.params.PC;
   conectar();
   let games = [];
   find(
     "RatingGames",
     "Games",
-    { platform: { $in: ["PC"] } },
+    { platform: { $regex: new RegExp(PC, "i") } },
     (game) => {
-      // console.log("Prueba 1: " + game.title, game.platform);
-      games.push(game.title, game.platform);
+      games.push(game);
+    },
+    function () {
+      res.send(games);
+    },
+    logError
+  );
+});
+
+app.get("/ps/:PS", function (req, res) {
+  let PS = req.params.PS;
+  conectar();
+  let games = [];
+  find(
+    "RatingGames",
+    "Games",
+    { platform: { $regex: new RegExp(PS, "i") } },
+    (game) => {
+      games.push(game);
+    },
+    function () {
+      res.send(games);
+    },
+    logError
+  );
+});
+
+app.get("/xbox/:XBOX", function (req, res) {
+  let XBOX = req.params.XBOX;
+  conectar();
+  let games = [];
+  find(
+    "RatingGames",
+    "Games",
+    { platform: { $regex: new RegExp(XBOX, "i") } },
+    (game) => {
+      games.push(game);
+    },
+    function () {
+      res.send(games);
+    },
+    logError
+  );
+});
+
+app.get("/nint/:NINT", function (req, res) {
+  let NINT = req.params.NINT;
+  conectar();
+  let games = [];
+  find(
+    "RatingGames",
+    "Games",
+    { platform: { $regex: new RegExp(NINT, "i") } },
+    (game) => {
+      games.push(game);
     },
     function () {
       res.send(games);
@@ -124,9 +181,10 @@ app.get("/company", function (req, res) {
   );
 });
 
-// ----------------Sacar toda la información de los juegos-------------------
+// ----------------Sacar toda la información de juegos por id-------------------
 
-app.get("/todo", function (req, res) {
+app.get("/game/:_id", function (req, res) {
+  let _id = req.params._id;
   res.set("Access-Control-Allow-Origin", "*");
   /* response.send({ msg: "This has CORS enabled" }); */
   MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
@@ -136,7 +194,7 @@ app.get("/todo", function (req, res) {
 
     database
       .collection("Games")
-      .find()
+      .find({ _id: ObjectId(_id) })
       .toArray((err, results) => {
         if (err) throw err;
 
@@ -181,29 +239,65 @@ app.get("/toprating", function (req, res) {
 
 // --------------------------------------------------------------------------
 
-app.post("/register", function (req, res) {
-  res.set("Access-Control-Allow-Origin", "*");
-  /* response.send({ msg: "This has CORS enabled" }); */
+///////REGISTER//////
+app.post("/newUser", function (request, response) {
+  response.set("Access-Control-Allow-Origin", "*");
+  let MyNewUser = request.body;
   MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
     if (err) throw err;
-
     let database = client.db("RatingGames");
-
     database
       .collection("Users")
-      .find()
-      .toArray((err, results) => {
-        if (err) throw err;
-
-        results.forEach((value) => {
-          console.log(value);
-        });
-        res.json(results);
+      .findOne({})
+      .then((doc) => {
+        database.collection("Users").insertOne(MyNewUser);
+        database
+          .collection("Users")
+          .find()
+          .toArray((err, results) => {
+            if (err) throw err;
+            response.json(results);
+          });
       });
   });
 });
 
-// --------------------------------------------------------------------------
+///////LOGIN//////
+app.post("/login", function (request, response) {
+  myBody = request.body;
+  response.set("Access-Control-Allow-Origin", "*");
+  /* response.send({ msg: "This has CORS enabled" }); */
+  MongoClient.connect("mongodb://localhost:27017/", async (err, client) => {
+    if (err) throw err;
+    let database = client.db("RatingGames");
+    var exist = false;
+    let token = "";
+    let result = "";
+    var usuarios = await database.collection("Users").findOne({
+      email: { $eq: myBody.email },
+      password: { $eq: myBody.password },
+    });
+    if (usuarios !== null) {
+      token = jwt.sign(
+        {
+          email: usuarios.email,
+          id: usuarios._id,
+        },
+        "validedToken",
+        {
+          expiresIn: "1h",
+        }
+      );
+      result = {
+        email: usuarios.email,
+        id: usuarios._id,
+        token: token,
+      };
+    }
+    response.json(result);
+  });
+});
 
+// --------------------------------------------------------------------------
 
 app.listen(8080);

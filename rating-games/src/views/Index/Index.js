@@ -1,11 +1,31 @@
 import "./Index.css";
 import { Link } from "react-router-dom";
+import Powerslap from "../../videos/indexvideo720.mp4";
 
 export default function Index() {
   return (
     <>
+      <video
+        className="videoInicio"
+        id="video-inicio"
+        autoPlay
+        loop
+        muted
+        style={{
+          position: "absolute",
+          width: "100%",
+          left: "50%",
+          top: "40vh",
+          minHeight: "100%",
+          objectFit: "cover",
+          transform: "translate(-50%, -50%)",
+          zIndex: -1,
+        }}
+      >
+        <source src={Powerslap} type="video/mp4" />
+      </video>
       <div className="bounce choose">
-        <span className="fa-angle-double-down:before font-monospace fs-1">
+        <span className="fa-angle-double-down:before font-monospace fs-1 text-white">
           Escoge tu plataforma
         </span>
       </div>
@@ -14,7 +34,7 @@ export default function Index() {
           <div className="frame">
             <Link to="/ps">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/1280px-Playstation_logo_colour.svg.png"
+                src="https://www.pngkey.com/png/full/7-74293_la-siguiente-playstation-playstation-4-logo-png.png"
                 alt="playstationlogo"
                 className="playlogo"
               />
@@ -47,7 +67,7 @@ export default function Index() {
           <div className="frame">
             <Link to="/pc">
               <img
-                src="https://play-lh.googleusercontent.com/SbG9KOoZnnVB_hxvY5MfD6F4R8YJHGk4BKhp_-9PWdCuEPCXyPAaVdi8fJ1oSLMCle4"
+                src="https://www.mrgeek.net/img/platforms/pc.png"
                 alt="pclogo"
                 className="pclogo"
               />

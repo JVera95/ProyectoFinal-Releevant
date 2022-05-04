@@ -1,24 +1,35 @@
 import { useState, useEffect, useRef } from "react";
-import { useLoginContext } from "../contexts/LoginContext";
-import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 export default function Login() {
-  const { login, errorMessage, loggin } = useLoginContext();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const userRef = useRef();
+  const [user, setUser] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const from = location.state?.from?.pathname || "/";
+  async function fetchApi(user) {
+    let response = await fetch("http://localhost:8080/login", {
+      mode: "cors",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password,
+      }),
+    });
+    let json = await response.json();
+    console.log(json);
+    window.localStorage.setItem("loggedIn", JSON.stringify(json));
+    setUser(json);
+  }
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-
-  useEffect(function () {
-    return userRef.current.focus();
-  }, []);
+  async function login(user) {
+    await fetchApi(user);
+    if (user) {
+      setUser(user);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Error al introducir las credenciales!");
+    }
+  }
 
   function handleInputs(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -37,28 +48,29 @@ export default function Login() {
   return (
     <>
       <Navbar />
-      <section>
-        <p
-          className={errorMessage ? "errmsg" : "offscreen"}
-          aria-live="assertive"
-        >
-          {errorMessage}
-        </p>
-        <h1>Sign In</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Username:</label>
+      <h1>Sign In</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
+            Email
+          </label>
           <input
+            className="form-control"
             type="text"
             id="email"
             name="email"
-            ref={userRef}
             autoComplete="off"
             onChange={handleInputs}
             value={user.email}
             required
           />
-          <label htmlFor="password">Password:</label>
+        </div>
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
+            Password
+          </label>
           <input
+            className="form-control"
             type="password"
             id="password"
             name="password"
@@ -66,9 +78,21 @@ export default function Login() {
             value={user.password}
             required
           />
-          <button className="btn btn-primary mt-3">Sign In</button>
-        </form>
-      </section>
+        </div>
+        <div className="mb-3 form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="exampleCheck1"
+          />
+          <label className="form-check-label" for="exampleCheck1">
+            Stay signed in
+          </label>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Sign In
+        </button>
+      </form>
     </>
   );
 }
