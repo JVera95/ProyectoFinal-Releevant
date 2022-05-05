@@ -1,8 +1,14 @@
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
 
   async function fetchApi(user) {
     let response = await fetch("http://localhost:8080/newUser", {
@@ -20,20 +26,37 @@ export default function Register() {
     setUser(json);
   }
 
+  function handleInputs(e) {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetchApi(user);
+    setUser({
+      username: "",
+      email: "",
+      password: "",
+    });
+    navigate("/login");
+  }
+
   return (
     <>
       <Navbar />
       <h1>Register</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
             Username
           </label>
           <input
             type="username"
+            name="username"
+            value={user.username}
+            onChange={handleInputs}
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            required
           />
         </div>
         <div className="mb-3">
@@ -42,8 +65,11 @@ export default function Register() {
           </label>
           <input
             type="email"
+            name="email"
+            value={user.email}
+            onChange={handleInputs}
             className="form-control"
-            id="exampleInputPassword1"
+            required
           />
           <div className="mb-3">
             <label for="exampleInputPassword1" className="form-label">
@@ -51,30 +77,13 @@ export default function Register() {
             </label>
             <input
               type="password"
+              name="password"
+              value={user.password}
+              onChange={handleInputs}
               className="form-control"
-              id="exampleInputPassword1"
+              required
             />
           </div>
-          <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
-              Repeat password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" for="exampleCheck1">
-            I accept the terms of service
-          </label>
         </div>
         <button type="submit" className="btn btn-primary">
           Submit

@@ -290,7 +290,6 @@ app.post("/login", function (request, response) {
       );
       result = {
         email: usuarios.email,
-        id: usuarios._id,
         token: token,
       };
     }

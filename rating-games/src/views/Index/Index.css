@@ -1,11 +1,4 @@
-body {
-    -ms-overflow-style: none;
-    overflow-y: scroll;
-  }
 
-  body::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
-  }
 
 .playlogo {
     width: 130px;
@@ -34,7 +27,7 @@ body {
 .animation {
     margin: auto;
     width: 500px;
-    height: 45vh;
+    height: 35vh;
     padding: 15px;
     
     display: flex;

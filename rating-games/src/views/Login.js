@@ -1,9 +1,14 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 export default function Login() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   async function fetchApi(user) {
     let response = await fetch("http://localhost:8080/login", {
@@ -42,7 +47,7 @@ export default function Login() {
       email: "",
       password: "",
     });
-    navigate(from, { replace: true });
+    navigate("/");
   }
 
   return (
@@ -78,16 +83,6 @@ export default function Login() {
             value={user.password}
             required
           />
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" for="exampleCheck1">
-            Stay signed in
-          </label>
         </div>
         <button type="submit" className="btn btn-primary">
           Sign In
