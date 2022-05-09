@@ -10,8 +10,8 @@ import Xbox from "./views/Xbox";
 import Nint from "./views/Nint";
 import Pc from "./views/Pc";
 import Game from "./views/Game";
-import Login from "./views/Login";
-import Register from "./views/Register";
+import Login from "./views/Login/Login";
+import Register from "./views/Register/Register";
 import Toprating from "./views/Toprating";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,6 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import "./Login.css";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
+import Powerslap from "../../videos/indexvideo720.mp4";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -53,7 +55,67 @@ export default function Login() {
   return (
     <>
       <Navbar />
-      <h1>Sign In</h1>
+      <video
+        className="videoInicio"
+        id="video-inicio"
+        autoPlay
+        loop
+        muted
+        style={{
+          position: "absolute",
+          width: "100%",
+          left: "50%",
+          top: "40vh",
+          minHeight: "100%",
+          objectFit: "cover",
+          transform: "translate(-50%, -50%)",
+          zIndex: -1,
+        }}
+      >
+        <source src={Powerslap} type="video/mp4" />
+      </video>
+      <div class="container">
+        <div class="title">Login</div>
+        <div class="content">
+          <form onSubmit={handleSubmit}>
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Email</span>
+                <input
+                  type="text"
+                  placeholder="Enter your email"
+                  name="email"
+                  value={user.email}
+                  onChange={handleInputs}
+                  autoComplete="off"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <span class="details">Password</span>
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  name="password"
+                  value={user.password}
+                  onChange={handleInputs}
+                  autoComplete="off"
+                  required
+                />
+              </div>
+            </div>
+            <div class="button">
+              <input type="submit" value="Sign In" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}
+
+{
+  /* <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
@@ -87,7 +149,5 @@ export default function Login() {
         <button type="submit" className="btn btn-primary">
           Sign In
         </button>
-      </form>
-    </>
-  );
+      </form> */
 }

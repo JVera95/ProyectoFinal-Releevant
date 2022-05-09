@@ -31,9 +31,9 @@ export default function Pc() {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <div className="container bg-white text-dark">
         {pc?.map((game) => (
-          <div className="mt-5" style={{ width: "25%" }} key={game._id}>
+          <div style={{ width: "25%" }} key={game._id}>
             <img src={game.cover} width="100%" alt="game cover" />
             <div className="m-auto">
               <h5 className="card-title">{game.title}</h5>
