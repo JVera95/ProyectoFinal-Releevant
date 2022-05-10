@@ -1,23 +1,20 @@
-import "./carousel.css";
-import "./carousel.rtl.css";
-import "./Pc.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Pc() {
-  const [pc, setPc] = useState([]);
+export default function Nint() {
+  const [nint, setNint] = useState([]);
 
   useEffect(() => {
-    async function fetchPc() {
-      const res = await fetch("http://localhost:8080/pc/PC");
+    async function fetchNint() {
+      const res = await fetch("http://localhost:8080/nint/NINT");
       const json = await res.json();
-      setPc(json);
+      setNint(json);
     }
-    fetchPc();
+    fetchNint();
   }, []);
 
-  if (!pc) {
+  if (!nint) {
     return (
       <div className="text-center">
         <div
@@ -61,26 +58,24 @@ export default function Pc() {
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img
-                src="https://www.nme.com/wp-content/uploads/2022/01/Zomboid-Louiseville-2000x1270-1.jpg"
-                alt="projectzomboid"
+                src="https://pressover.news/wp-content/uploads/2021/10/featured-metroid-dread-artwork-01.jpg"
+                alt="metroid"
                 style={{
                   objectFit: "cover",
                 }}
               />
               <div class="container">
                 <div class="carousel-caption text-start">
-                  <h1>Project Zomboid</h1>
+                  <h1>Metroid Dread</h1>
                   <p>
-                    Project Zomboid es un videojuego de terror de supervivencia
-                    isométrico de mundo abierto desarrollado por el
-                    desarrollador independiente británico y canadiense The Indie
-                    Stone.
+                  Metroid Dread es un videojuego de acción-aventura de 2021 de la serie Metroid, desarrollado por MercurySteam en colaboración con la filial Nintendo EPD y publicado por Nintendo para la consola Nintendo Switch.
                   </p>
                   <p>
                     <a
                       class="btn btn-secondary"
-                      href="https://projectzomboid.com/blog/"
+                      href="https://metroid.nintendo.com/"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Go to Website &raquo;
                     </a>
@@ -90,25 +85,24 @@ export default function Pc() {
             </div>
             <div class="carousel-item">
               <img
-                src="https://allimages.sgp1.digitaloceanspaces.com/bestreviewgamescom/2022/01/1641780873_6_50-Best-Valorant-Wallpapers.jpg"
-                alt="valorant"
+                src="https://sm.ign.com/ign_es/screenshot/default/2022030310455900-336db1da8bdc3bf38ed8609901964a6b_adf7.jpg"
+                alt="kirby"
                 style={{
                   objectFit: "cover",
                 }}
               />
               <div class="container">
                 <div class="carousel-caption text-start">
-                  <h1>Valorant</h1>
+                  <h1>Kirby and the Forgotten Land</h1>
                   <p>
-                    Valorant es un videojuego de disparos en primera persona
-                    multijugador gratuito desarrollado y publicado por Riot
-                    Games.
+                  Kirby y la tierra olvidada, titulado en inglés como Kirby and the Forgotten Land, es un videojuego de plataformas en 3D de la saga Kirby, desarrollado por HAL Laboratory y publicado por Nintendo para la videoconsola Nintendo Switch.
                   </p>
                   <p>
                     <a
                       class="btn btn-secondary"
-                      href="https://playvalorant.com/es-es/"
+                      href="https://kirbyandtheforgottenland.nintendo.com/"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Go to Website &raquo;
                     </a>
@@ -118,26 +112,24 @@ export default function Pc() {
             </div>
             <div class="carousel-item">
               <img
-                src="https://wallegend.net/uploads/cdn/1280x720/g/MTY0MDE3MDgwNV8yMzgwLmpwZw==.jpg"
-                alt="valorant"
+                src="https://i.ytimg.com/vi/a5ZV1T9E0is/maxresdefault.jpg"
+                alt="monsterh"
                 style={{
                   objectFit: "cover",
                 }}
               />
               <div class="container">
                 <div class="carousel-caption text-start">
-                  <h1>Rocket League</h1>
+                  <h1>Monster Hunter Rise</h1>
                   <p>
-                    Rocket League es un videojuego que combina el fútbol con los
-                    vehículos. Fue desarrollado por Psyonix y lanzado el 7 de
-                    julio de 2015. Fue lanzado Free to play en septiembre de
-                    2020.
+                  Monster Hunter Rise es un juego de rol de acción desarrollado y publicado por Capcom para Nintendo Switch. Es la entrega más reciente de la saga portátil , perteneciendo a la quinta generación de la saga.
                   </p>
                   <p>
                     <a
                       class="btn btn-secondary"
-                      href="https://www.rocketleague.com/es-es/"
+                      href="https://www.monsterhunter.com/rise/es/"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Go to Website &raquo;
                     </a>
@@ -259,7 +251,7 @@ export default function Pc() {
 
           <hr className="featurette-divider" />
 
-          {pc?.map((game) => (
+          {nint?.map((game) => (
             <>
               <div className="row featurette">
                 <div className="col-md-7 order-md-2">

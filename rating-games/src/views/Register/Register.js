@@ -66,7 +66,7 @@ export default function Register() {
       >
         <source src={Powerslap} type="video/mp4" />
       </video>
-      <div className="container">
+      <div className="containerregister">
         <div className="title">Registration</div>
         <div className="content">
           <form onSubmit={handleSubmit}>

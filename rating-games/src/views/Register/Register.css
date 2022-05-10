@@ -1,19 +1,20 @@
-.container{
+.containerregister {
   position: center;
-  /* margin-top: 7rem;
-  max-width: 700px; */
+  margin-top: 9rem;
+  max-width: 700px;
   width: 100%;
   background-color: rgba(29, 29, 29, 0.5);
+  margin-left: 40rem;
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 }
-.container .title{
+.containerregister .title{
   font-size: 25px;
   font-weight: 500;
   position: relative;
 }
-.container .title::before{
+.containerregister .title::before{
   content: "";
   position: absolute;
   left: 0;
@@ -104,11 +105,10 @@ form .input-box span.details{
    background: linear-gradient(135deg, #000000, #a658c5);
 }
  form .button input:hover{
-  /* transform: scale(0.99); */
   background: linear-gradient(135deg, #000000, #a658c5);
   }
  @media(max-width: 584px){
- .container{
+ .containerregister {
   max-width: 100%;
 }
 form .user-details .input-box{
@@ -127,7 +127,7 @@ form .user-details .input-box{
   }
   }
   @media(max-width: 459px){
-  .container .content .category{
+  .containerregister .content .category{
     flex-direction: column;
   }
 }

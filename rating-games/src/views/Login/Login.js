@@ -57,7 +57,7 @@ export default function Login() {
     <>
       <Navbar />
       <VideoBackground video={Powerslap} />
-      <div className="container">
+      <div className="containerlogin">
         <div className="title">Login</div>
         <div className="content">
           <form onSubmit={handleSubmit}>
