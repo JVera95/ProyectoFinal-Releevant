@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Powerslap from "../../videos/indexvideo720.mp4";
+import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -55,25 +56,7 @@ export default function Login() {
   return (
     <>
       <Navbar />
-      <video
-        className="videoInicio"
-        id="video-inicio"
-        autoPlay
-        loop
-        muted
-        style={{
-          position: "absolute",
-          width: "100%",
-          left: "50%",
-          top: "40vh",
-          minHeight: "100%",
-          objectFit: "cover",
-          transform: "translate(-50%, -50%)",
-          zIndex: -1,
-        }}
-      >
-        <source src={Powerslap} type="video/mp4" />
-      </video>
+      <VideoBackground video={Powerslap} />
       <div className="container">
         <div className="title">Login</div>
         <div className="content">

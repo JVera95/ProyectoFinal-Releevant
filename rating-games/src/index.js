@@ -8,7 +8,7 @@ import Index from "./views/Index/Index";
 import Ps from "./views/Ps";
 import Xbox from "./views/Xbox";
 import Nint from "./views/Nint";
-import Pc from "./views/Pc";
+import Pc from "./views/Pc/Pc";
 import Game from "./views/Game/Game";
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";

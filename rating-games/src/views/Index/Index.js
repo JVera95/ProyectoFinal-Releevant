@@ -12,13 +12,11 @@ export default function Index() {
         loop
         muted
         style={{
-          position: "absolute",
-          width: "100%",
-          left: "50%",
-          top: "40vh",
+          position: "fixed",
+          right: 0,
+          bottom: 0,
+          minWidth: "100%",
           minHeight: "100%",
-          objectFit: "cover",
-          transform: "translate(-50%, -50%)",
           zIndex: -1,
         }}
       >

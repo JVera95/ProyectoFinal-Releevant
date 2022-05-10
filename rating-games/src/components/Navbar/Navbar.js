@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from "./logoblanco2.png";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-dark bg-dark font-monospace p-3">
+    <nav className="navbar navbar-dark bg-dark font-monospace">
       <div className="container-fluid">
         <NavLink to="/" className="navbar-brand">
-          LOGO
+          <img src={logo} alt="..." width="50%" />
         </NavLink>
         <form className="d-flex">
           <input

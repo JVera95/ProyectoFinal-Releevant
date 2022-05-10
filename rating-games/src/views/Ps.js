@@ -34,7 +34,7 @@ export default function Ps() {
       <div className="container bg-white text-dark">
         {ps?.map((game) => (
           <div style={{ width: "25%" }} key={game._id}>
-            <img src={game.cover} width="100%" alt="game cover" />
+            <img src={game.cover} width="100%" alt="gamecover" />
             <div className="m-auto">
               <h5 className="card-title">{game.title}</h5>
               <p className="card-text text-success">{game.rating}</p>
