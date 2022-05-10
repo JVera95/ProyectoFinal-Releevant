@@ -68,13 +68,13 @@ export default function Register() {
       >
         <source src={Powerslap} type="video/mp4" />
       </video>
-      <div class="container">
-        <div class="title">Registration</div>
-        <div class="content">
+      <div className="container">
+        <div className="title">Registration</div>
+        <div className="content">
           <form onSubmit={handleSubmit}>
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Full Name</span>
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">Full Name</span>
                 <input
                   type="text"
                   placeholder="Enter your name"
@@ -84,8 +84,8 @@ export default function Register() {
                   required
                 />
               </div>
-              <div class="input-box">
-                <span class="details">Username</span>
+              <div className="input-box">
+                <span className="details">Username</span>
                 <input
                   type="text"
                   placeholder="Enter your username"
@@ -95,8 +95,8 @@ export default function Register() {
                   required
                 />
               </div>
-              <div class="input-box">
-                <span class="details">Email</span>
+              <div className="input-box">
+                <span className="details">Email</span>
                 <input
                   type="text"
                   placeholder="Enter your email"
@@ -106,8 +106,8 @@ export default function Register() {
                   required
                 />
               </div>
-              <div class="input-box">
-                <span class="details">Password</span>
+              <div className="input-box">
+                <span className="details">Password</span>
                 <input
                   type="password"
                   placeholder="Enter your password"
@@ -118,7 +118,7 @@ export default function Register() {
                 />
               </div>
             </div>
-            <div class="button">
+            <div className="button">
               <input type="submit" value="Register" />
             </div>
           </form>

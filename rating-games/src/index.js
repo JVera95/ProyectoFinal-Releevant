@@ -9,10 +9,12 @@ import Ps from "./views/Ps";
 import Xbox from "./views/Xbox";
 import Nint from "./views/Nint";
 import Pc from "./views/Pc";
-import Game from "./views/Game";
+import Game from "./views/Game/Game";
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
 import Toprating from "./views/Toprating";
+import Profile from "./views/Profile";
+import MyList from "./views/Mylist";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,6 +28,8 @@ root.render(
         <Route path="/pc" element={<Pc />} />
         <Route path="/game/:_id" element={<Game />} />
         <Route path="/toprating" element={<Toprating />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/mylist" element={<MyList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>

@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -33,10 +33,10 @@ export default function Game() {
     <>
       <Navbar />
       <div className="container">
-        <div className="mt-5" style={{ width: "25%" }}>
+        <div className="mt-5" style={{ width: "60%" }}>
           <img src={game[0].cover} width="100%" alt="game cover" />
           <div className="m-auto">
-            <h2>{game[0].title}</h2>
+            <div className="title">{game[0].title}</div>
             <p>{game[0].gameModes}</p>
           </div>
         </div>

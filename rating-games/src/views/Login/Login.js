@@ -74,13 +74,13 @@ export default function Login() {
       >
         <source src={Powerslap} type="video/mp4" />
       </video>
-      <div class="container">
-        <div class="title">Login</div>
-        <div class="content">
+      <div className="container">
+        <div className="title">Login</div>
+        <div className="content">
           <form onSubmit={handleSubmit}>
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Email</span>
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">Email</span>
                 <input
                   type="text"
                   placeholder="Enter your email"
@@ -91,8 +91,8 @@ export default function Login() {
                   required
                 />
               </div>
-              <div class="input-box">
-                <span class="details">Password</span>
+              <div className="input-box">
+                <span className="details">Password</span>
                 <input
                   type="password"
                   placeholder="Enter your password"
@@ -104,7 +104,7 @@ export default function Login() {
                 />
               </div>
             </div>
-            <div class="button">
+            <div className="button">
               <input type="submit" value="Sign In" />
             </div>
           </form>
@@ -112,42 +112,4 @@ export default function Login() {
       </div>
     </>
   );
-}
-
-{
-  /* <h1>Sign In</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
-            Email
-          </label>
-          <input
-            className="form-control"
-            type="text"
-            id="email"
-            name="email"
-            autoComplete="off"
-            onChange={handleInputs}
-            value={user.email}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
-            Password
-          </label>
-          <input
-            className="form-control"
-            type="password"
-            id="password"
-            name="password"
-            onChange={handleInputs}
-            value={user.password}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Sign In
-        </button>
-      </form> */
 }
