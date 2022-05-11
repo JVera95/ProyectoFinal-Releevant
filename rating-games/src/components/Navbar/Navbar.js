@@ -13,7 +13,7 @@ export default function Navbar() {
           <input
             className="form-control me-2"
             type="search"
-            placeholder="Search"
+            placeholder="Buscar"
             aria-label="Search"
           />
           <button className="btn btn-default" type="submit">
@@ -21,7 +21,7 @@ export default function Navbar() {
           </button>
         </form>
         <NavLink to="/toprating" className="navbar-brand">
-          Top Rating
+          Top Valorados
         </NavLink>
         <NavLink to="/mylist" className="navbar-brand">
           Mi Lista
@@ -56,12 +56,12 @@ export default function Navbar() {
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li>
                 <NavLink to="/login" className="dropdown-item text-white">
-                  Login
+                  Iniciar Sesión
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/register" className="dropdown-item text-white">
-                  Register
+                  Registrarse
                 </NavLink>
               </li>
             </ul>

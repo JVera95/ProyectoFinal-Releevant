@@ -1,11 +1,13 @@
 import "./Login.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 import Navbar from "../../components/Navbar";
 import Powerslap from "../../videos/indexvideo720.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Login() {
+  // const { login } = useAuthContext();
   const [user, setUser] = useState({
     email: "",
     password: "",

@@ -22,7 +22,7 @@ export default function Nint() {
           style={{ width: "3rem", height: "3rem" }}
           role="status"
         >
-          <span className="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Cargando...</span>
         </div>
       </div>
     );
@@ -68,7 +68,10 @@ export default function Nint() {
                 <div class="carousel-caption text-start">
                   <h1>Metroid Dread</h1>
                   <p>
-                  Metroid Dread es un videojuego de acción-aventura de 2021 de la serie Metroid, desarrollado por MercurySteam en colaboración con la filial Nintendo EPD y publicado por Nintendo para la consola Nintendo Switch.
+                    Metroid Dread es un videojuego de acción-aventura de 2021 de
+                    la serie Metroid, desarrollado por MercurySteam en
+                    colaboración con la filial Nintendo EPD y publicado por
+                    Nintendo para la consola Nintendo Switch.
                   </p>
                   <p>
                     <a
@@ -77,7 +80,7 @@ export default function Nint() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -95,7 +98,10 @@ export default function Nint() {
                 <div class="carousel-caption text-start">
                   <h1>Kirby and the Forgotten Land</h1>
                   <p>
-                  Kirby y la tierra olvidada, titulado en inglés como Kirby and the Forgotten Land, es un videojuego de plataformas en 3D de la saga Kirby, desarrollado por HAL Laboratory y publicado por Nintendo para la videoconsola Nintendo Switch.
+                    Kirby y la tierra olvidada, titulado en inglés como Kirby
+                    and the Forgotten Land, es un videojuego de plataformas en
+                    3D de la saga Kirby, desarrollado por HAL Laboratory y
+                    publicado por Nintendo para la videoconsola Nintendo Switch.
                   </p>
                   <p>
                     <a
@@ -104,7 +110,7 @@ export default function Nint() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -122,7 +128,10 @@ export default function Nint() {
                 <div class="carousel-caption text-start">
                   <h1>Monster Hunter Rise</h1>
                   <p>
-                  Monster Hunter Rise es un juego de rol de acción desarrollado y publicado por Capcom para Nintendo Switch. Es la entrega más reciente de la saga portátil , perteneciendo a la quinta generación de la saga.
+                    Monster Hunter Rise es un juego de rol de acción
+                    desarrollado y publicado por Capcom para Nintendo Switch. Es
+                    la entrega más reciente de la saga portátil , perteneciendo
+                    a la quinta generación de la saga.
                   </p>
                   <p>
                     <a
@@ -131,7 +140,7 @@ export default function Nint() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -145,7 +154,7 @@ export default function Nint() {
             data-bs-slide="prev"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
           </button>
           <button
             class="carousel-control-next"
@@ -154,96 +163,87 @@ export default function Nint() {
             data-bs-slide="next"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Siguiente</span>
           </button>
         </div>
 
+        <h1 className="text-center mb-5">Próximos lanzamientos</h1>
         <div className="container marketing">
           <div className="row">
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://i.blogs.es/943db5/x720/200_200.jpeg"
+                alt="bayonetta"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>Bayonetta 3</h2>
               <p>
-                Some representative placeholder content for the three columns of
-                text below the carousel. This is the first column.
+                Bayonetta 3 es un videojuego de acción próximo en desarrollo por
+                PlatinumGames, y publicado por Nintendo.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://www.platinumgames.com/games/bayonetta-3"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://i.blogs.es/7cfe00/466404/200_200.jpeg"
+                alt="breath"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>Legend of Zelda: Breath of the Wild 2</h2>
               <p>
-                Another exciting bit of representative placeholder content. This
-                time, we've moved on to the second column.
+                La secuela sin título de The Legend of Zelda: Breath of the Wild
+                será un videojuego de acción-aventura de 2023 de la serie The
+                Legend of Zelda.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://www.zelda.com/breath-of-the-wild/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://i.blogs.es/5a382b/mprime2_box_cover_02_hd/200_200.jpeg"
+                alt="metroid"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>Metroid Prime 4</h2>
               <p>
-                And lastly this, the third column of representative placeholder
-                content.
+                Metroid Prime 4 es un videojuego de acción-aventura en primera
+                persona actualmente en desarrollo por Retro Studios para la
+                plataforma Nintendo Switch.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://metroid.fandom.com/wiki/Metroid_Prime_4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
@@ -263,7 +263,7 @@ export default function Nint() {
                       to={`/game/${game._id}`}
                       className="btn btn-secondary"
                     >
-                      See more &raquo;
+                      Más detalles &raquo;
                     </Link>
                   </p>
                 </div>
@@ -278,7 +278,7 @@ export default function Nint() {
 
         <footer className="container">
           <p className="float-end">
-            <a href="#">Back to top</a>
+            <a href="#">Volver arriba</a>
           </p>
           <p>2021 - 2022 Releevant, Vera.</p>
         </footer>

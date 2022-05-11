@@ -22,7 +22,7 @@ export default function Ps() {
           style={{ width: "3rem", height: "3rem" }}
           role="status"
         >
-          <span className="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Cargando...</span>
         </div>
       </div>
     );
@@ -68,7 +68,9 @@ export default function Ps() {
                 <div class="carousel-caption text-start">
                   <h1>The Last of Us 2</h1>
                   <p>
-                  The Last of Us Part II es un videojuego de terror y de acción y aventuras de 2020 desarrollado por Naughty Dog y publicado por Sony.
+                    The Last of Us Part II es un videojuego de terror y de
+                    acción y aventuras de 2020 desarrollado por Naughty Dog y
+                    publicado por Sony.
                   </p>
                   <p>
                     <a
@@ -77,7 +79,7 @@ export default function Ps() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -95,7 +97,9 @@ export default function Ps() {
                 <div class="carousel-caption text-start">
                   <h1>Spider-Man Miles Morales</h1>
                   <p>
-                  Marvel's Spider-Man: Miles Morales es un videojuego de acción y aventuras desarrollado por Insomniac Games y publicado por Sony Interactive Entertainment.
+                    Marvel's Spider-Man: Miles Morales es un videojuego de
+                    acción y aventuras desarrollado por Insomniac Games y
+                    publicado por Sony Interactive Entertainment.
                   </p>
                   <p>
                     <a
@@ -104,7 +108,7 @@ export default function Ps() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -122,7 +126,9 @@ export default function Ps() {
                 <div class="carousel-caption text-start">
                   <h1>Days Gone</h1>
                   <p>
-                  Days Gone es un videojuego de terror y acción-aventura, desarrollado por el estudio SIE Bend Studio y publicado por Sony Interactive Entertainment.
+                    Days Gone es un videojuego de terror y acción-aventura,
+                    desarrollado por el estudio SIE Bend Studio y publicado por
+                    Sony Interactive Entertainment.
                   </p>
                   <p>
                     <a
@@ -131,7 +137,7 @@ export default function Ps() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -145,7 +151,7 @@ export default function Ps() {
             data-bs-slide="prev"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
           </button>
           <button
             class="carousel-control-next"
@@ -154,96 +160,87 @@ export default function Ps() {
             data-bs-slide="next"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Siguiente</span>
           </button>
         </div>
 
+        <h1 className="text-center mb-5">Próximos lanzamientos</h1>
         <div className="container marketing">
           <div className="row">
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://images.ctfassets.net/nwksj2ft7iku/49VET5aEeKtil9PJs40BlA/cc75508f1d161b7fd9ce5bed294597a1/hogwarts-legacy-logo-200.jpeg"
+                alt="legacy"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>Hogwarts Legacy</h2>
               <p>
-                Some representative placeholder content for the three columns of
-                text below the carousel. This is the first column.
+                Hogwarts Legacy es un videojuego de rol de mundo abierto que se
+                encuentra en desarrollo. Es desarrollado por Avalanche Software
+                y distribuido por Portkey Games.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://www.hogwartslegacy.com/es-es"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://i.blogs.es/493cfd/1366_2000/200_200.jpeg"
+                alt="godofwar"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>God of War: Ragnarök</h2>
               <p>
-                Another exciting bit of representative placeholder content. This
-                time, we've moved on to the second column.
+                God of War: Ragnarök es un próximo juego de acción y aventuras
+                en desarrollo por Santa Monica Studio y que será publicado por
+                Sony.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://www.playstation.com/es-es/games/god-of-war-ragnarok/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://i.blogs.es/210dca/ffxvi/200_200.jpeg"
+                alt="finalfantasy"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>Final Fantasy XVI</h2>
               <p>
-                And lastly this, the third column of representative placeholder
-                content.
+                Final Fantasy XVI es un videojuego de rol de acción que está
+                siendo desarrollado por Square Enix para PlayStation 5.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://es.finalfantasyxvi.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
@@ -263,7 +260,7 @@ export default function Ps() {
                       to={`/game/${game._id}`}
                       className="btn btn-secondary"
                     >
-                      See more &raquo;
+                      Más detalles &raquo;
                     </Link>
                   </p>
                 </div>
@@ -278,7 +275,7 @@ export default function Ps() {
 
         <footer className="container">
           <p className="float-end">
-            <a href="#">Back to top</a>
+            <a href="#">Volver arriba</a>
           </p>
           <p>2021 - 2022 Releevant, Vera.</p>
         </footer>

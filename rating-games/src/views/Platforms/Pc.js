@@ -25,7 +25,7 @@ export default function Pc() {
           style={{ width: "3rem", height: "3rem" }}
           role="status"
         >
-          <span className="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Cargando...</span>
         </div>
       </div>
     );
@@ -83,7 +83,7 @@ export default function Pc() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -112,7 +112,7 @@ export default function Pc() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -142,7 +142,7 @@ export default function Pc() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Go to Website &raquo;
+                      Ir a la Web &raquo;
                     </a>
                   </p>
                 </div>
@@ -156,7 +156,7 @@ export default function Pc() {
             data-bs-slide="prev"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
           </button>
           <button
             class="carousel-control-next"
@@ -165,96 +165,86 @@ export default function Pc() {
             data-bs-slide="next"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Siguiente</span>
           </button>
         </div>
 
+        <h1 className="text-center mb-5">Próximos lanzamientos</h1>
         <div className="container marketing">
           <div className="row">
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://www.clavecd.es/wp-content/uploads/diablo-4-small1-231x300.jpg"
+                alt="diablo"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>Diablo IV</h2>
               <p>
-                Some representative placeholder content for the three columns of
-                text below the carousel. This is the first column.
+                Diablo IV es un videojuego en desarrollo perteneciente al género
+                de rol de acción, desarrollado por la empresa Blizzard
+                Entertainment.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://diablo4.blizzard.com/es-es/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://i.blogs.es/bccb60/hollow-knight-silksong/200_200.jpg"
+                alt="hollow"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>Hollow Knight: Silksong</h2>
               <p>
-                Another exciting bit of representative placeholder content. This
-                time, we've moved on to the second column.
+                Hollow Knight: Silksong es un videojuego en desarrollo del
+                género Metroidvania, desarrollado y publicado por Team Cherry.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://www.hollowknightsilksong.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
+              <img
+                src="https://i.blogs.es/2a9ec0/stalker-2/200_200.jpeg"
+                alt="stalker"
                 className="bd-placeholder-img rounded-circle"
                 width="140"
                 height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              />
 
-              <h2>Heading</h2>
+              <h2>S.T.A.L.K.E.R. 2</h2>
               <p>
-                And lastly this, the third column of representative placeholder
-                content.
+                STALKER 2 será un videojuego del género de disparos en primera
+                persona ambientado en un futuro postapocalíptico.
               </p>
               <p>
-                <a className="btn btn-secondary" href="#">
-                  View details &raquo;
+                <a
+                  className="btn btn-secondary"
+                  href="https://www.stalker2.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ir a la Web &raquo;
                 </a>
               </p>
             </div>
@@ -274,12 +264,17 @@ export default function Pc() {
                       to={`/game/${game._id}`}
                       className="btn btn-secondary"
                     >
-                      See more &raquo;
+                      Más detalles &raquo;
                     </Link>
                   </p>
                 </div>
                 <div className="col-md-5 order-md-1">
-                  <img src={game.cover} width="100%" alt="gamecover" />
+                  <img
+                    src={game.cover}
+                    width="100%"
+                    alt="gamecover"
+                    className="imgcover"
+                  />
                 </div>
               </div>
               <hr className="featurette-divider" />
@@ -289,7 +284,7 @@ export default function Pc() {
 
         <footer className="container">
           <p className="float-end">
-            <a href="#">Back to top</a>
+            <a href="#">Volver arriba</a>
           </p>
           <p>2021 - 2022 Releevant, Vera.</p>
         </footer>
