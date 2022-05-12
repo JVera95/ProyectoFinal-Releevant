@@ -1,34 +1,11 @@
-.container{
-    position: center;
-    margin-top: 10rem;
-    max-width: 700px;
-    width: 100%;
-    background-color: rgba(29, 29, 29, 0.5);
-    padding: 25px 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.8);
-  }
-
-  .container .title{
-      display: flex;
-    font-size: 25px;
-    font-weight: 500;
-    position: relative;
-  }
-  .container .title::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #ffffff, #a658c5);
-  }
-
-  .content form .user-details{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0 12px 0;
-  }
+.container-game {
+  width: 90%;
+  height: 60%;
+  position: relative;
+  margin-top: 2.1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  opacity: 0.8;
+  border-radius: 20px;
+  padding: 50px;
+}

@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Powerslap from "../../videos/indexvideo720.mp4";
+import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -49,23 +50,7 @@ export default function Register() {
   return (
     <>
       <Navbar />
-      <video
-        className="videoInicio"
-        id="video-inicio"
-        autoPlay
-        loop
-        muted
-        style={{
-          position: "fixed",
-          right: 0,
-          bottom: 0,
-          minWidth: "100%",
-          minHeight: "100%",
-          zIndex: -1,
-        }}
-      >
-        <source src={Powerslap} type="video/mp4" />
-      </video>
+      <VideoBackground video={Powerslap} />
       <div className="containerregister">
         <div className="title">Registration</div>
         <div className="content">

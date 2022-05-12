@@ -7,7 +7,7 @@ import Powerslap from "../../videos/indexvideo720.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Login() {
-  // const { login } = useAuthContext();
+  const { setAuth } = useAuthContext();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -26,19 +26,9 @@ export default function Login() {
       }),
     });
     let json = await response.json();
-    console.log(json);
     window.localStorage.setItem("loggedIn", JSON.stringify(json));
-    setUser(json);
-  }
-
-  async function login(user) {
-    await fetchApi(user);
-    if (user) {
-      setUser(user);
-      setErrorMessage("");
-    } else {
-      setErrorMessage("Error al introducir las credenciales!");
-    }
+    console.log(json);
+    setAuth(json);
   }
 
   function handleInputs(e) {
@@ -47,7 +37,7 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    login(user);
+    fetchApi(user);
     setUser({
       email: "",
       password: "",
@@ -60,7 +50,7 @@ export default function Login() {
       <Navbar />
       <VideoBackground video={Powerslap} />
       <div className="containerlogin">
-        <div className="title">Login</div>
+        <div className="title">Inicio de Sesión</div>
         <div className="content">
           <form onSubmit={handleSubmit}>
             <div className="user-details">
@@ -77,7 +67,7 @@ export default function Login() {
                 />
               </div>
               <div className="input-box">
-                <span className="details">Password</span>
+                <span className="details">Contraseña</span>
                 <input
                   type="password"
                   placeholder="Enter your password"
@@ -90,7 +80,7 @@ export default function Login() {
               </div>
             </div>
             <div className="button">
-              <input type="submit" value="Sign In" />
+              <input type="submit" value="Iniciar Sesión" />
             </div>
           </form>
         </div>

@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext({
   auth: {},
-  login: () => {},
+  setAuth: () => {},
   errorMessage: "",
 });
 
@@ -12,21 +12,11 @@ export const useAuthContext = () => {
 
 export default function AuthContextProvider({ children }) {
   const [auth, setAuth] = useState(null);
-  console.log("Authcontext", auth);
   const [errorMessage, setErrorMessage] = useState("");
-
-  function login(user) {
-    if (auth) {
-      setAuth(auth);
-      setErrorMessage("");
-    } else {
-      setErrorMessage("Error al introducil las credenciales!");
-    }
-  }
 
   const value = {
     auth,
-    login,
+    setAuth,
     errorMessage,
   };
 

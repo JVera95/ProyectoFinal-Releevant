@@ -4,6 +4,8 @@ import "./Pc.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import GameVideo from "../../videos/gamevideo.mp4";
+import VideoBackground2 from "../../components/VideoBackground2/VideoBackground2";
 
 export default function Pc() {
   const [pc, setPc] = useState([]);
@@ -34,6 +36,7 @@ export default function Pc() {
   return (
     <>
       <Navbar />
+      <VideoBackground2 video={GameVideo} />
       <main>
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -169,124 +172,158 @@ export default function Pc() {
           </button>
         </div>
 
-        <h1 className="text-center mb-5">Próximos lanzamientos</h1>
-        <div className="container marketing">
-          <div className="row">
-            <div className="col-lg-4">
-              <img
-                src="https://www.clavecd.es/wp-content/uploads/diablo-4-small1-231x300.jpg"
-                alt="diablo"
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-              />
+        <div data-aos="fade-up">
+          <h1 className="text-center mb-5">Próximos lanzamientos</h1>
+          <div className="container marketing">
+            <div className="row">
+              <div className="col-lg-4">
+                <img
+                  src="https://www.clavecd.es/wp-content/uploads/diablo-4-small1-231x300.jpg"
+                  alt="diablo"
+                  className="bd-placeholder-img rounded-circle"
+                  width="140"
+                  height="140"
+                />
 
-              <h2>Diablo IV</h2>
-              <p>
-                Diablo IV es un videojuego en desarrollo perteneciente al género
-                de rol de acción, desarrollado por la empresa Blizzard
-                Entertainment.
-              </p>
-              <p>
-                <a
-                  className="btn btn-secondary"
-                  href="https://diablo4.blizzard.com/es-es/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ir a la Web &raquo;
-                </a>
-              </p>
-            </div>
-            <div className="col-lg-4">
-              <img
-                src="https://i.blogs.es/bccb60/hollow-knight-silksong/200_200.jpg"
-                alt="hollow"
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-              />
-
-              <h2>Hollow Knight: Silksong</h2>
-              <p>
-                Hollow Knight: Silksong es un videojuego en desarrollo del
-                género Metroidvania, desarrollado y publicado por Team Cherry.
-              </p>
-              <p>
-                <a
-                  className="btn btn-secondary"
-                  href="https://www.hollowknightsilksong.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ir a la Web &raquo;
-                </a>
-              </p>
-            </div>
-            <div className="col-lg-4">
-              <img
-                src="https://i.blogs.es/2a9ec0/stalker-2/200_200.jpeg"
-                alt="stalker"
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-              />
-
-              <h2>S.T.A.L.K.E.R. 2</h2>
-              <p>
-                STALKER 2 será un videojuego del género de disparos en primera
-                persona ambientado en un futuro postapocalíptico.
-              </p>
-              <p>
-                <a
-                  className="btn btn-secondary"
-                  href="https://www.stalker2.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ir a la Web &raquo;
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <hr className="featurette-divider" />
-
-          {pc?.map((game) => (
-            <>
-              <div className="row featurette">
-                <div className="col-md-7 order-md-2">
-                  <h2 className="featurette-heading">{game.title}</h2>
-                  <p className="text-muted">{game.genre}</p>
-                  <p className="lead">{game.synopsis}</p>
-                  <p>
-                    <Link
-                      to={`/game/${game._id}`}
-                      className="btn btn-secondary"
-                    >
-                      Más detalles &raquo;
-                    </Link>
-                  </p>
-                </div>
-                <div className="col-md-5 order-md-1">
-                  <img
-                    src={game.cover}
-                    width="100%"
-                    alt="gamecover"
-                    className="imgcover"
-                  />
-                </div>
+                <h2>Diablo IV</h2>
+                <p>
+                  Diablo IV es un videojuego en desarrollo perteneciente al
+                  género de rol de acción, desarrollado por la empresa Blizzard
+                  Entertainment.
+                </p>
+                <p>
+                  <a
+                    className="btn btn-secondary"
+                    href="https://diablo4.blizzard.com/es-es/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ir a la Web &raquo;
+                  </a>
+                </p>
               </div>
-              <hr className="featurette-divider" />
-            </>
-          ))}
+              <div className="col-lg-4">
+                <img
+                  src="https://i.blogs.es/bccb60/hollow-knight-silksong/200_200.jpg"
+                  alt="hollow"
+                  className="bd-placeholder-img rounded-circle"
+                  width="140"
+                  height="140"
+                />
+
+                <h2>Hollow Knight: Silksong</h2>
+                <p>
+                  Hollow Knight: Silksong es un videojuego en desarrollo del
+                  género Metroidvania, desarrollado y publicado por Team Cherry.
+                </p>
+                <p>
+                  <a
+                    className="btn btn-secondary"
+                    href="https://www.hollowknightsilksong.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ir a la Web &raquo;
+                  </a>
+                </p>
+              </div>
+              <div className="col-lg-4">
+                <img
+                  src="https://i.blogs.es/2a9ec0/stalker-2/200_200.jpeg"
+                  alt="stalker"
+                  className="bd-placeholder-img rounded-circle"
+                  width="140"
+                  height="140"
+                />
+
+                <h2>S.T.A.L.K.E.R. 2</h2>
+                <p>
+                  STALKER 2 será un videojuego del género de disparos en primera
+                  persona ambientado en un futuro postapocalíptico.
+                </p>
+                <p>
+                  <a
+                    className="btn btn-secondary"
+                    href="https://www.stalker2.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ir a la Web &raquo;
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <hr className="featurette-divider" />
+
+            {pc?.map((game) => (
+              <>
+                <div className="row featurette">
+                  <div className="col-md-7 order-md-2">
+                    <h2 className="featurette-heading">{game.title}</h2>
+                    <p className="text-muted">{game.genre}</p>
+                    <p className="lead">{game.synopsis}</p>
+                    <p>
+                      <Link
+                        to={`/game/${game._id}`}
+                        className="btn btn-secondary"
+                      >
+                        Más detalles &raquo;
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="col-md-5 order-md-1">
+                    <img
+                      src={game.cover}
+                      width="100%"
+                      alt="gamecover"
+                      className="imgcover"
+                    />
+                  </div>
+                </div>
+                <hr className="featurette-divider" />
+              </>
+            ))}
+          </div>
         </div>
 
-        <footer className="container">
-          <p className="float-end">
-            <a href="#">Volver arriba</a>
-          </p>
-          <p>2021 - 2022 Releevant, Vera.</p>
+        <footer>
+          <p className="text-center text-muted">&copy; 2022 Vera, Releevant</p>
+          <ul className="nav justify-content-center text-center">
+            <li className="nav-item">
+              <a
+                href="https://www.linkedin.com/in/jvera95/"
+                className="nav-link"
+              >
+                <img
+                  src="https://pnggrid.com/wp-content/uploads/2021/05/linkedin-logo-white-1024x1024.png"
+                  alt="link"
+                  width="3%"
+                  height="3%"
+                />
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="https://github.com/JVera95" className="nav-link">
+                <img
+                  src="https://rajlab.org/icons/github_white.png"
+                  alt="link"
+                  width="10%"
+                  height="10%"
+                />
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="https://twitter.com/JVera_95" className="nav-link">
+                <img
+                  src="https://i.dlpng.com/static/png/6361689_preview.png"
+                  alt="link"
+                  width="10%"
+                  height="10%"
+                />
+              </a>
+            </li>
+          </ul>
         </footer>
       </main>
     </>

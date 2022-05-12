@@ -4,7 +4,10 @@ import logo from "./logoblanco2.png";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-dark bg-dark font-monospace">
+    <nav
+      className="navbar navbar-dark bg-dark font-monospace"
+      style={{ opacity: 0.8 }}
+    >
       <div className="container-fluid">
         <NavLink to="/" className="navbar-brand">
           <img src={logo} alt="..." width="50%" />

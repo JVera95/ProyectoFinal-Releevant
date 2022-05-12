@@ -1,6 +1,8 @@
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import GameVideo from "../../videos/gamevideo.mp4";
+import VideoBackground2 from "../../components/VideoBackground2/VideoBackground2";
 
 export default function Xbox() {
   const [xbox, setXbox] = useState([]);
@@ -31,6 +33,7 @@ export default function Xbox() {
   return (
     <>
       <Navbar />
+      <VideoBackground2 video={GameVideo} />
       <main>
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
