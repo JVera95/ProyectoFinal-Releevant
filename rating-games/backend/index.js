@@ -101,66 +101,6 @@ app.get("/nint/:NINT", function (req, res) {
   );
 });
 
-// -------------------Sacar juegos que tengan gameModes Single player--------
-
-app.get("/gamemode", function (req, res) {
-  conectar();
-  let games = [];
-  find(
-    "RatingGames",
-    "Games",
-    { gameModes: { $in: ["Single player"] } },
-    (game) => {
-      // console.log("Prueba 2: " + game.title, game.gameModes);
-      games.push(game.title, game.gameModes);
-    },
-    function () {
-      res.send(games);
-    },
-    logError
-  );
-});
-
-// -------------------Sacar juegos que sean RPG's----------------------------
-
-app.get("/genre", function (req, res) {
-  conectar();
-  let games = [];
-  find(
-    "RatingGames",
-    "Games",
-    { genre: { $in: ["Role-playing(RPG)"] } },
-    (game) => {
-      // console.log("Prueba 3: " + game.title, game.genre);
-      games.push(game.title, game.genre);
-    },
-    function () {
-      res.send(games);
-    },
-    logError
-  );
-});
-
-// -------------------Sacar juegos que tengan un rating especifico------------
-
-app.get("/rating", function (req, res) {
-  conectar();
-  let games = [];
-  find(
-    "RatingGames",
-    "Games",
-    { rating: { $eq: 99 } },
-    (game) => {
-      // console.log("Prueba 4: " + game.title, game.rating);
-      games.push(game.title, game.rating);
-    },
-    function () {
-      res.send(games);
-    },
-    logError
-  );
-});
-
 // ------------------Sacar juegos que sean de "Bethesda Game Studios"---------
 
 app.get("/company", function (req, res) {
@@ -206,6 +146,32 @@ app.get("/game/:_id", function (req, res) {
   });
 });
 
+// -------------------Sacar al usuario por id----------------------------
+
+app.get("/profile/:_id", function (req, res) {
+  let _id = req.params._id;
+  res.set("Access-Control-Allow-Origin", "*");
+  /* response.send({ msg: "This has CORS enabled" }); */
+  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+    if (err) throw err;
+
+    let database = client.db("RatingGames");
+
+    database
+      .collection("Users")
+      .find({ _id: ObjectId(_id) })
+      .toArray((err, results) => {
+        console.log(results);
+        if (err) throw err;
+
+        results.forEach((value) => {
+          console.log(value);
+        });
+        res.json(results);
+      });
+  });
+});
+
 // -----------------Sacar los juegos de mayor a menor rating-----------------
 
 app.get("/toprating", function (req, res) {
@@ -227,6 +193,7 @@ app.get("/toprating", function (req, res) {
 
         results.forEach((games) => {
           let game = {
+            _id: games._id,
             title: games.title,
             rating: games.rating,
           };
@@ -281,7 +248,7 @@ app.post("/login", function (request, response) {
       token = jwt.sign(
         {
           email: usuarios.email,
-          id: usuarios._id,
+          _id: usuarios._id,
         },
         "validedToken",
         {
@@ -289,6 +256,7 @@ app.post("/login", function (request, response) {
         }
       );
       result = {
+        _id: usuarios._id,
         email: usuarios.email,
         token: token,
       };

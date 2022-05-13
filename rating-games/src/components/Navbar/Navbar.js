@@ -1,8 +1,16 @@
+import "./Navbar.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 import logo from "./logoblanco2.png";
 
 export default function Navbar() {
+  const { auth, logout } = useAuthContext();
+
+  const handleClick = () => {
+    logout();
+  };
+  console.log({ auth });
   return (
     <nav
       className="navbar navbar-dark bg-dark font-monospace"
@@ -12,64 +20,46 @@ export default function Navbar() {
         <NavLink to="/" className="navbar-brand">
           <img src={logo} alt="..." width="50%" />
         </NavLink>
-        <form className="d-flex">
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Buscar"
-            aria-label="Search"
-          />
-          <button className="btn btn-default" type="submit">
-            <i className="fa fa-search"></i>
-          </button>
-        </form>
-        <NavLink to="/toprating" className="navbar-brand">
+        <NavLink to="/toprating" className="navbar-brand navlink">
           Top Valorados
         </NavLink>
-        <NavLink to="/mylist" className="navbar-brand">
-          Mi Lista
-        </NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="offcanvas offcanvas-end bg-dark text-white"
-          tabIndex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-              Rating Games
-            </h5>
-            <button
-              type="button"
-              className="btn-close text-reset"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="offcanvas-body">
-            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li>
-                <NavLink to="/login" className="dropdown-item text-white">
-                  Iniciar Sesión
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/register" className="dropdown-item text-white">
-                  Registrarse
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-        </div>
+        {auth ? (
+          <>
+            <NavLink to="/mylist" className="navbar-brand navlink">
+              Mi Lista
+            </NavLink>
+            <NavLink
+              to="/login"
+              onClick={handleClick}
+              className="navbar-brand navlink"
+            >
+              Cerrar Sesión
+            </NavLink>
+            <NavLink to={`/profile/${auth._id}`} replace>
+              <button type="button" class="btn btn-light btn-circle btn-xl">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  fill="currentColor"
+                  className="bi bi-person"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                </svg>
+              </button>
+            </NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink to="/login" className="navbar-brand navlink">
+              Iniciar Sesión
+            </NavLink>
+            <NavLink to="/register" className="navbar-brand navlink">
+              Registrarse
+            </NavLink>
+          </>
+        )}
       </div>
     </nav>
   );

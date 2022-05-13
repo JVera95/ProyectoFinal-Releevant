@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import GameVideo from "../../videos/gamevideo.mp4";
-import VideoBackground2 from "../../components/VideoBackground2/VideoBackground2";
+import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Pc() {
   const [pc, setPc] = useState([]);
@@ -32,11 +32,12 @@ export default function Pc() {
       </div>
     );
   }
+  console.log("desde pc", pc);
 
   return (
     <>
       <Navbar />
-      <VideoBackground2 video={GameVideo} />
+      <VideoBackground video={GameVideo} />
       <main>
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -287,44 +288,63 @@ export default function Pc() {
           </div>
         </div>
 
-        <footer>
-          <p className="text-center text-muted">&copy; 2022 Vera, Releevant</p>
-          <ul className="nav justify-content-center text-center">
-            <li className="nav-item">
-              <a
-                href="https://www.linkedin.com/in/jvera95/"
-                className="nav-link"
-              >
-                <img
-                  src="https://pnggrid.com/wp-content/uploads/2021/05/linkedin-logo-white-1024x1024.png"
-                  alt="link"
-                  width="3%"
-                  height="3%"
-                />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="https://github.com/JVera95" className="nav-link">
-                <img
-                  src="https://rajlab.org/icons/github_white.png"
-                  alt="link"
-                  width="10%"
-                  height="10%"
-                />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="https://twitter.com/JVera_95" className="nav-link">
-                <img
-                  src="https://i.dlpng.com/static/png/6361689_preview.png"
-                  alt="link"
-                  width="10%"
-                  height="10%"
-                />
-              </a>
-            </li>
-          </ul>
-        </footer>
+        <div className="container">
+          <footer className="d-flex flex-wrap justify-content-between align-items-center">
+            <p className="col-md-4 mb-0 text-muted">
+              &copy; 2022 Releevant, Vera
+            </p>
+
+            <ul class="nav col-md-4 justify-content-end">
+              <li class="nav-item">
+                <a
+                  href="https://www.linkedin.com/in/jvera95/"
+                  className="nav-link px-2 text-muted"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Linkedin
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://github.com/JVera95"
+                  className="nav-link px-2 text-muted"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://twitter.com/JVera_95"
+                  className="nav-link px-2 text-muted"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Twitter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" className="nav-link px-2 text-muted">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-up-circle"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </footer>
+        </div>
       </main>
     </>
   );

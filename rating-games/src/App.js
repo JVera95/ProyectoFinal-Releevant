@@ -9,7 +9,7 @@ import Game from "./views/Game/Game";
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
 import Toprating from "./views/Toprating";
-import Profile from "./views/Profile";
+import Profile from "./views/Profile/Profile";
 import MyList from "./views/Mylist";
 import RequireAuth from "./components/RequireAuth";
 import Missing from "./views/Missing";
@@ -30,7 +30,7 @@ function App() {
         <Route path="toprating" element={<Toprating />} />
         {/*Protected Routes*/}
         <Route element={<RequireAuth />}>
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile/:_id" element={<Profile />} />
           <Route path="mylist" element={<MyList />} />
         </Route>
       </Route>

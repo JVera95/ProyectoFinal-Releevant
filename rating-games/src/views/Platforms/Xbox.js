@@ -2,7 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import GameVideo from "../../videos/gamevideo.mp4";
-import VideoBackground2 from "../../components/VideoBackground2/VideoBackground2";
+import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Xbox() {
   const [xbox, setXbox] = useState([]);
@@ -33,7 +33,7 @@ export default function Xbox() {
   return (
     <>
       <Navbar />
-      <VideoBackground2 video={GameVideo} />
+      <VideoBackground video={GameVideo} />
       <main>
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -275,12 +275,46 @@ export default function Xbox() {
           ))}
         </div>
 
-        <footer className="container">
-          <p className="float-end">
-            <a href="#">Volver arriba</a>
-          </p>
-          <p>2021 - 2022 Releevant, Vera.</p>
-        </footer>
+        <div className="container">
+          <footer className="d-flex flex-wrap justify-content-between align-items-center">
+            <p className="col-md-4 mb-0 text-muted">
+              &copy; 2022 Releevant, Vera
+            </p>
+
+            <ul class="nav col-md-4 justify-content-end">
+              <li class="nav-item">
+                <a
+                  href="https://www.linkedin.com/in/jvera95/"
+                  className="nav-link px-2 text-muted"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Linkedin
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://github.com/JVera95"
+                  className="nav-link px-2 text-muted"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://twitter.com/JVera_95"
+                  className="nav-link px-2 text-muted"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Twitter
+                </a>
+              </li>
+            </ul>
+          </footer>
+        </div>
       </main>
     </>
   );
