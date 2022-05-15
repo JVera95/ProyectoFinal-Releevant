@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GameVideo from "../../videos/gamevideo.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
+import Fav from "../../components/Fav/Fav"
 
-export default function Game() {
+export default function Game({id}) {
   const [game, setGame] = useState(null);
   const { _id } = useParams();
 
@@ -37,11 +38,14 @@ export default function Game() {
       <Navbar />
       <VideoBackground video={GameVideo} />
       <div className="container-game bg-dark">
+      {game?.map((game) => (
+        <>
         <div className="mt-5" style={{ width: "25%" }}>
-          <img src={game[0].cover} width="100%" alt="game cover" />
+          <img src={game.cover} width="100%" alt="game cover" />
+          <Fav id={id}></Fav>
           <div className="m-auto">
-            <div className="title">{game[0].title}</div>
-            <p>{game[0].gameModes}</p>
+            <div className="title">{game.title}</div>
+            <p>{game.gameModes}</p>
           </div>
         </div>
         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
@@ -70,8 +74,8 @@ export default function Game() {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
-                src="https://sm.ign.com/ign_es/news/e/elden-ring/elden-ring-has-been-designed-to-reduce-player-stress-without_bu7p.jpg"
-                alt="..."
+                src={game.images[0]}
+                alt="imggame1"
                 style={{
                   objectFit: "cover",
                 }}
@@ -81,7 +85,7 @@ export default function Game() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/e5wwSxl0atc"
+                src={game.trailer}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -90,8 +94,8 @@ export default function Game() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://i.blogs.es/8e4885/maxresdefault/1366_2000.jpeg"
-                alt="..."
+                src={game.images[1]}
+                alt="imggame2"
                 style={{
                   objectFit: "cover",
                 }}
@@ -123,6 +127,9 @@ export default function Game() {
             <span className="visually-hidden">Siguiente</span>
           </button>
         </div>
+        </>
+      ))}
+
       </div>
     </>
   );

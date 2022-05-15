@@ -38,16 +38,70 @@ export default function Profile() {
     <>
       <Navbar />
       <VideoBackground video={GameVideo} />
-      <div className="container-profile bg-dark">
-        {user?.map((user) => (
-          <>
-            <p>{user.fullname}</p>
-            <p>{user.username}</p>
-            <p>{user.email}</p>
-            <input type="file" />
-          </>
-        ))}
+      {user?.map((user) => (
+    <>
+  <div className="grid-7 element-animation">
+    <div className="card bg-dark">
+      <img src="https://www.citypng.com/public/uploads/small/11639594342hjraqgbufi3xlb66lt30fz1pwfcydxkjqbynfqdpvufz41ysjtngiet4dyrywgqqqqu56w5nozgrhyecs4ixrlllkl150ogbiid1.png" alt="profile-pic" className="profile"/>
+      <h1 className="titleprofile">{user.fullname}</h1>
+      <p className="content">{user.username}</p>
+      <p className="content">{user.email}</p>
+      <hr/>
+      <button className="buttonprofile" data-toggle="modal" data-target=".bd-example-modal-lg"> Editar</button>
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content bg-dark p-4">
+          <h3 className="titleprofile">Edita tus datos</h3>
+        <div className="content">
+          <form>
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">Nombre</span>
+                <input
+                  type="text"
+                  placeholder="Introduce tu nombre"
+                  name="fullname"
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <span className="details">Usuario</span>
+                <input
+                  type="text"
+                  placeholder="Introduce un nombre de usuario"
+                  name="username"
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <span className="details">Email</span>
+                <input
+                  type="email"
+                  placeholder="Introduce un email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <span className="details">Contraseña</span>
+                <input
+                  type="password"
+                  placeholder="Introduce una contraseña"
+                  name="password"
+                  required
+                />
+              </div>
+            </div>
+            <button className="buttonprofile2" type="submit"> Enviar</button>
+          </form>
+        </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+  </>
+  ))}
     </>
   );
 }

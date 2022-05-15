@@ -1,0 +1,13 @@
+.fav-button {
+    background: rgba(255, 255, 255, 0.8);
+    border: 0;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    transition: all .3s ease;
+}
+
+.fav-button:hover {
+    background: #8C52FF;
+}

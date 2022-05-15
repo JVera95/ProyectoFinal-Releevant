@@ -57,8 +57,8 @@ export default function Login() {
               <div className="input-box">
                 <span className="details">Email</span>
                 <input
-                  type="text"
-                  placeholder="Enter your email"
+                  type="email"
+                  placeholder="Introduce tu email"
                   name="email"
                   value={user.email}
                   onChange={handleInputs}
@@ -70,7 +70,7 @@ export default function Login() {
                 <span className="details">Contraseña</span>
                 <input
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Introduce tu contraseña"
                   name="password"
                   value={user.password}
                   onChange={handleInputs}

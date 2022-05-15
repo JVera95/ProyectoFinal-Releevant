@@ -52,15 +52,15 @@ export default function Register() {
       <Navbar />
       <VideoBackground video={Powerslap} />
       <div className="containerregister">
-        <div className="title">Registration</div>
+        <div className="title">Registro</div>
         <div className="content">
           <form onSubmit={handleSubmit}>
             <div className="user-details">
               <div className="input-box">
-                <span className="details">Full Name</span>
+                <span className="details">Nombre</span>
                 <input
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Introduce tu nombre"
                   name="fullname"
                   value={user.fullname}
                   onChange={handleInputs}
@@ -68,10 +68,10 @@ export default function Register() {
                 />
               </div>
               <div className="input-box">
-                <span className="details">Username</span>
+                <span className="details">Usuario</span>
                 <input
                   type="text"
-                  placeholder="Enter your username"
+                  placeholder="Introduce un nombre de usuario"
                   name="username"
                   value={user.username}
                   onChange={handleInputs}
@@ -81,8 +81,8 @@ export default function Register() {
               <div className="input-box">
                 <span className="details">Email</span>
                 <input
-                  type="text"
-                  placeholder="Enter your email"
+                  type="email"
+                  placeholder="Introduce tu email"
                   name="email"
                   value={user.email}
                   onChange={handleInputs}
@@ -90,10 +90,10 @@ export default function Register() {
                 />
               </div>
               <div className="input-box">
-                <span className="details">Password</span>
+                <span className="details">Contraseña</span>
                 <input
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Introduce una contraseña"
                   name="password"
                   value={user.password}
                   onChange={handleInputs}
@@ -102,7 +102,7 @@ export default function Register() {
               </div>
             </div>
             <div className="button">
-              <input type="submit" value="Register" />
+              <input type="submit" value="Registrar" />
             </div>
           </form>
         </div>

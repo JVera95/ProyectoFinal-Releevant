@@ -1,4 +1,4 @@
-.container-profile {
+/* .container-profile {
     width: 90%;
     height: 60%;
     position: relative;
@@ -7,4 +7,217 @@
     margin-right: 5%;
     border-radius: 2%;
     padding: 50px;
+  } */
+
+
+  .color-card{
+    background:#31394D;
+  }
+
+  .content{
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .titleprofile{
+    text-align: center;
+    color:#ffffff;
+    width:300;
+  }
+  
+  .buttonprofile {
+    margin: auto;
+    height: 7%;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #8C52FF;
+  }
+
+  .buttonprofile2 {
+    margin: auto;
+    height: 7%;
+    margin-top: 2rem;
+    width: 25%;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #8C52FF;
+  }
+
+  .content2{
+    text-align: center;
+  }
+  
+  .img{
+    width:280px;
+  }
+  
+  .card {
+    border-radius: 2%;
+    height: 40rem;
+    margin: auto;
+    margin-top: 5rem;
+    position: relative;
+    width: 30rem;
+    box-shadow: 0 12px 13px rgba(0,0,0,0.16), 0 12px 13px rgba(0,0,0,0.16);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  
+  .profile{
+    border-radius:100%;
+    margin-top:3rem;
+    margin: auto;
+    width:9rem;
+    height:9rem;
+  }
+  
+  .element-animation{
+    animation: animationFrames ease 2s;
+    animation-iteration-count: 2;
+    transform-origin: 50% 50%;
+    animation-fill-mode:forwards; /*when the spec is finished*/
+    -webkit-animation: animationFrames ease 1.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/ 
+  }
+
+
+  .content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  
+  form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  
+  form .input-box span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .user-details .input-box input:focus,
+  .user-details .input-box input:valid{
+    border-color: #9b59b6;
+  }
+  
+   form .gender-details .gender-title{
+    font-size: 20px;
+    font-weight: 500;
+   }
+  
+   form .category{
+     display: flex;
+     width: 80%;
+     margin: 14px 0 ;
+     justify-content: space-between;
+   }
+  
+   form .category label{
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+   }
+  
+   form .category label .dot{
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #d9d9d9;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+   #dot-1:checked ~ .category label .one,
+   #dot-2:checked ~ .category label .two,
+   #dot-3:checked ~ .category label .three{
+    background: #8C52FF;
+    border-color: #d9d9d9;
+   }
+  
+   form input[type="radio"]{
+     display: none;
+   }
+   
+   form .button{
+     height: 45px;
+     margin: 35px 0
+   }
+  
+   form .button input{
+     
+     height: 100%;
+     width: 100%;
+     border-radius: 5px;
+     border: none;
+     color: rgb(255, 255, 255);
+     font-size: 18px;
+     font-weight: 500;
+     letter-spacing: 1px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     background: #8C52FF;
+    }
+  
+   @media(max-width: 584px){
+   .containerregister {
+    max-width: 100%;
+  }
+  
+  form .user-details .input-box{
+      margin-bottom: 15px;
+      width: 100%;
+    }
+  
+    form .category{
+      width: 100%;
+    }
+  
+    .content form .user-details{
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+  
+    .user-details::-webkit-scrollbar{
+      width: 5px;
+    }
+  
+    }
+  
+    @media(max-width: 459px){
+    .containerregister .content .category{
+      flex-direction: column;
+    }
+  
   }

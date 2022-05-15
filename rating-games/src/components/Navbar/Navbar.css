@@ -14,3 +14,11 @@
 .navlink:hover {
  text-decoration: underline;
 }
+
+.profilenavbar {
+    border-radius:100%;
+    margin-top:3rem;
+    margin: auto;
+    width:4rem;
+    height:4rem;
+  }

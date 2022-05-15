@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import GameVideo from "../videos/gamevideo.mp4";
-import VideoBackground from "../components/VideoBackground/VideoBackground";
+import GameVideo from "../../videos/gamevideo.mp4";
+import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Toprating() {
   const [rating, setRating] = useState([]);
