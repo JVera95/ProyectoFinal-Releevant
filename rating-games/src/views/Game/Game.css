@@ -7,4 +7,58 @@
   margin-right: 5%;
   border-radius: 2%;
   padding: 50px;
+  box-shadow: 0 12px 13px rgba(0,0,0,0.16), 0 12px 13px rgba(0,0,0,0.16);
+}
+
+.game-divider {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.gamecover {
+  box-shadow: 0 12px 13px rgba(0,0,0,0.16), 0 12px 13px rgba(0,0,0,0.16);
+}
+
+.flex-container {
+  display: flex;
+}
+
+.box {
+  margin-left: 3rem;
+}
+
+.box2 {
+  margin-top: 5rem;
+  margin-left: 1rem;
+  display: inline;
+}
+
+.boxtitle {
+  margin-left: 3rem;
+  margin-bottom: 3rem;
+}
+
+.gametitle {
+  font-weight: 100;
+  font-size: 4rem;
+}
+
+.gamecontent {
+  font-weight: 100;
+  font-size: 25px;
+}
+
+.favbuttongame {
+  margin-top: 5rem;
+  margin-left: 17rem;
+}
+
+.gamerating {
+  display: flex;
+  float: right;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: xx-large;
 }

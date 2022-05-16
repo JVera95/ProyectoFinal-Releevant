@@ -1,22 +1,15 @@
-import Navbar from "../../components/Navbar/Navbar";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import "./Mylist.css";
+import Navbar from "../../components/Navbar";
 import GameVideo from "../../videos/gamevideo.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-export default function Toprating() {
-  const [rating, setRating] = useState([]);
+export default function MyList() {
+  const [myList, setMyList] = useState([])
+  const { _id } = useParams();
 
-  useEffect(() => {
-    async function fetchRating() {
-      const res = await fetch("http://localhost:8080/toprating");
-      const json = await res.json();
-      setRating(json);
-    }
-    fetchRating();
-  }, []);
-
-  if (!rating) {
+  if (!myList) {
     return (
       <div className="text-center">
         <div
@@ -35,12 +28,11 @@ export default function Toprating() {
       <Navbar />
       <VideoBackground video={GameVideo} />
       <div className="mt-3">
-        <h2 className="text-center mt-5">Top juegos mejor valorados</h2>
-        {rating?.map((game) => (
+        <h2 className="text-center mt-5">Mi lista de juegos</h2>
+        {myList?.map((game) => (
           <ul className="list-group w-50 m-auto my-5">
             <li className="list-group-item list-group-item-dark">
-              <span className="text-success">{game.rating} </span>
-              <span>{game.title}</span>
+              <span>{game.myList}</span>
               <Link
                 to={`/game/${game._id}`}
                 className="btn btn-secondary position-absolute bottom-0 end-0"

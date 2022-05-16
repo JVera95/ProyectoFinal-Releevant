@@ -10,7 +10,7 @@ import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
 import Toprating from "./views/Toprating/Toprating";
 import Profile from "./views/Profile/Profile";
-import MyList from "./views/Mylist";
+import MyList from "./views/Mylist/Mylist";
 import RequireAuth from "./components/RequireAuth";
 import Missing from "./views/Missing";
 

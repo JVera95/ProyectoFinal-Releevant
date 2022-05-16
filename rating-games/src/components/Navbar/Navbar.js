@@ -25,7 +25,7 @@ export default function Navbar() {
         </NavLink>
         {auth ? (
           <>
-            <NavLink to="/mylist" className="navbar-brand navlink">
+            <NavLink to={`/mylist/${auth._id}`} className="navbar-brand navlink">
               Mi Lista
             </NavLink>
             <NavLink

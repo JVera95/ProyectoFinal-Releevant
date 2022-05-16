@@ -40,14 +40,36 @@ export default function Game({id}) {
       <div className="container-game bg-dark">
       {game?.map((game) => (
         <>
-        <div className="mt-5" style={{ width: "25%" }}>
-          <img src={game.cover} width="100%" alt="game cover" />
-          <Fav id={id}></Fav>
-          <div className="m-auto">
-            <div className="title">{game.title}</div>
-            <p>{game.gameModes}</p>
-          </div>
-        </div>
+          <main>
+            <div className="row featurette">
+              <div className="col-md-7 order-md-2">
+                <button className="gamerating text-success">{game.rating}</button>
+                <h2 className="featurette-heading gametitle mt-5">{game.title}</h2>
+                <p className="text-muted mt-5">{game.genre}</p>
+                <p className="lead">{game.synopsis}</p>
+                <hr className="game-divider"/>
+                <p className="box2">{game.genre}</p>
+                <p className="box2">{game.company}</p>
+                <p className="box2">{game.gameModes}</p>
+                <p className="box2">{game.platform}</p>
+                <p className="box2">{game.date}</p>
+                <p className="favbuttongame">
+                <Fav id={id}></Fav>
+                </p>
+              </div>
+              <div className="col-md-5 order-md-1">
+                <img
+                  src={game.cover}
+                  width="80%"
+                  alt="gamecover"
+                  className="imgcover gamecover"
+                />
+              </div>
+            </div>
+          </main>
+
+        <hr className="featurette-divider"/>
+
         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             <button
@@ -134,3 +156,19 @@ export default function Game({id}) {
     </>
   );
 }
+
+        {/* <div className="flex-container">
+          <img className="gamecover" src={game.cover} width="35%" alt="game cover" />
+          <div>
+              <h1 className="gametitle mt-5 boxtitle">{game.title}</h1>
+              <p className="gamecontent box">{game.synopsis}</p>
+              <hr className="game-divider"/>
+              <p className="box2">{game.genre}</p>
+              <p className="box2">{game.company}</p>
+              <p className="box2">{game.gameModes}</p>
+              <p className="box2">{game.platform}</p>
+              <p className="box2">{game.date}</p>
+              <Fav className="gamefav" id={id}></Fav>
+          </div>
+            <p className="">{game.rating}</p>
+        </div> */}

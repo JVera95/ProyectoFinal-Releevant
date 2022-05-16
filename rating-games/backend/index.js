@@ -147,7 +147,6 @@ app.get("/profile/:_id", function (req, res) {
       .collection("Users")
       .find({ _id: ObjectId(_id) })
       .toArray((err, results) => {
-        console.log(results);
         if (err) throw err;
 
         results.forEach((value) => {
@@ -160,32 +159,75 @@ app.get("/profile/:_id", function (req, res) {
 
 // --------------------Modificar datos de usuarios por id--------------------
 
-
-
-// ----------------Sacar lista de favoritos de usuarios por id---------------
-
-app.get("/mylist/:_id", function (req, res) {
-  let _id = req.params._id;
+app.put("/editprofile/:_id", async function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
-  /* response.send({ msg: "This has CORS enabled" }); */
   MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
-    if (err) throw err;
+  let myBody = req.body;
+  let _id = req.params._id;
 
-    let database = client.db("RatingGames");
+  let database = client.db("RatingGames");
 
     database
       .collection("Users")
-      .find({ _id: ObjectId(_id) })
-      .toArray((err, results) => {
-        console.log(results);
-        if (err) throw err;
+      .findOne({ _id: ObjectId(_id) })
+      .then((doc) => {
+        database.collection("Users").updateOne(
+          { _id: ObjectId(_id) },
+          {
+            $set: {
+              
+                fullname: myBody.fullname,
+                username: myBody.username,
+                email: myBody.email,
+                password: myBody.password,
+              
+            },
+          }
+        );
 
-        results.forEach((value) => {
-          console.log(value);
-        });
-        res.json(results);
-      });
+        database
+          .collection("Users")
+          .find()
+          .toArray((err, results) => {
+            if (err) throw err;
+            res.json(results);
+          });
+      }); 
   });
+});
+
+// ----------------Sacar lista de favoritos de usuarios por id---------------
+
+app.put("/mylist/:_id", async function (req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+  let myBody = req.body;
+  let _id = req.params._id;
+
+  let database = client.db("RatingGames");
+
+    database
+      .collection("Users")
+      .findOne({ _id: ObjectId(_id) })
+      .then((doc) => {
+        database.collection("Users").updateOne(
+          { _id: ObjectId(_id) },
+          {
+            $set: {
+              mylist: myBody.mylist
+            },
+          }
+        );
+
+        database
+          .collection("Users")
+          .find()
+          .toArray((err, results) => {
+            if (err) throw err;
+            res.json(results);
+          });
+      });
+    })
 });
 
 // --------Borrar juegos de la lista de favoritos de usuarios por id---------

@@ -1,12 +1,15 @@
 import "./Profile.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 import Navbar from "../../components/Navbar";
 import GameVideo from "../../videos/gamevideo.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
 
 export default function Profile() {
+  const { auth, setAuth } = useAuthContext();
   const [user, setUser] = useState(null);
+  const [newUser, setNewUser] = useState([])
   const { _id } = useParams();
 
   console.log({ user });
@@ -19,6 +22,30 @@ export default function Profile() {
     }
     fetchUser();
   }, [_id]);
+
+  function handleInputs(e) {
+    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    console.log(newUser);
+    let res = await fetch(`http://localhost:8080/editprofile/${_id}`, {
+      mode: "cors",
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullname: newUser.fullname,
+        username: newUser.username,
+        email: newUser.email,
+        password: newUser.password,
+      }),
+
+    });
+    let json = await res.json();
+
+    setUser(json);
+  }
 
   if (!user) {
     return (
@@ -53,7 +80,7 @@ export default function Profile() {
           <div class="modal-content bg-dark p-4">
           <h3 className="titleprofile">Edita tus datos</h3>
         <div className="content">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="user-details">
               <div className="input-box">
                 <span className="details">Nombre</span>
@@ -61,6 +88,7 @@ export default function Profile() {
                   type="text"
                   placeholder="Introduce tu nombre"
                   name="fullname"
+                  onChange={handleInputs}
                   required
                 />
               </div>
@@ -70,6 +98,7 @@ export default function Profile() {
                   type="text"
                   placeholder="Introduce un nombre de usuario"
                   name="username"
+                  onChange={handleInputs}
                   required
                 />
               </div>
@@ -79,6 +108,7 @@ export default function Profile() {
                   type="email"
                   placeholder="Introduce un email"
                   name="email"
+                  onChange={handleInputs}
                   required
                 />
               </div>
@@ -88,6 +118,7 @@ export default function Profile() {
                   type="password"
                   placeholder="Introduce una contraseña"
                   name="password"
+                  onChange={handleInputs}
                   required
                 />
               </div>
