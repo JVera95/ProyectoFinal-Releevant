@@ -125,7 +125,7 @@ app.get("/game/:_id", function (req, res) {
         if (err) throw err;
 
         results.forEach((value) => {
-          console.log(value);
+          // console.log(value);
         });
         res.json(results);
       });
@@ -150,7 +150,7 @@ app.get("/profile/:_id", function (req, res) {
         if (err) throw err;
 
         results.forEach((value) => {
-          console.log(value);
+          // console.log(value);
         });
         res.json(results);
       });
@@ -196,39 +196,77 @@ app.put("/editprofile/:_id", async function (req, res) {
 
 // ----------------Sacar lista de favoritos de usuarios por id---------------
 
-app.put("/mylist/:_id", async function (req, res) {
+app.put("/mylist/favorite", async function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
-  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+  MongoClient.connect("mongodb://localhost:27017/", async (err, client) => {
     let myBody = req.body;
-    let _id = req.params._id;
-    let mylist = [];
-    console.log(myBody);
+    
+    let myList = []
 
     let database = client.db("RatingGames");
+    const authorization = req.get("Authorization")
+    let token = ""
+    
+    // if(authorization && authorization.toLowerCase().startsWith("bearer")) {
+      token = authorization
+    // }
+    // console.log(authorization);
 
-    database
-      .collection("Users")
-      .findOne({ _id: ObjectId(_id) })
-      .then((doc) => {
-        database.collection("Users").updateOne(
-          { _id: ObjectId(_id) },
-          {
-            $set: {
-              mylist: mylist.push(myBody),
-            },
-          }
-        );
-
-        database
-          .collection("Users")
-          .find()
-          .toArray((err, results) => {
-            if (err) throw err;
-            res.json(results);
-          });
-      });
+    const decodedToken = jwt.verify(token, "validedToken")
+    console.log(token);
+    var fav = await database.collection("Fav").findOne({user: {$eq: decodedToken._id}})
+    if(fav != null) {
+      let newTitle = {
+        id: myBody._id,
+        title: myBody.title
+      }
+      fav.fav.push(newTitle)
+      // console.log(fav);
+      await database.collection("Fav").updateOne({"user":decodedToken._id}, {$set: {"fav": fav.fav}})
+    } else {
+      let favorite = {
+        user: decodedToken._id,
+        fav: [{id: myBody._id ,title: myBody.title}]
+      }
+      await database.collection("Fav").insertOne(favorite);
+    }
+    res.json(true)
   });
 });
+
+// app.put("/mylist/:_id", async function (req, res) {
+//   res.set("Access-Control-Allow-Origin", "*");
+//   MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+//     let myBody = req.body;
+//     let _id = req.params._id;
+//     let mylist = [];
+//     console.log(myBody);
+
+//     let database = client.db("RatingGames");
+
+//     database
+//       .collection("Users")
+//       .findOne({ _id: ObjectId(_id) })
+//       .then((doc) => {
+//         database.collection("Users").updateOne(
+//           { _id: ObjectId(_id) },
+//           {
+//             $set: {
+//               mylist: mylist.push(myBody),
+//             },
+//           }
+//         );
+
+//         database
+//           .collection("Users")
+//           .find()
+//           .toArray((err, results) => {
+//             if (err) throw err;
+//             res.json(results);
+//           });
+//       });
+//   });
+// });
 
 // --------Borrar juegos de la lista de favoritos de usuarios por id---------
 

@@ -2,12 +2,11 @@ import "./Mylist.css";
 import Navbar from "../../components/Navbar";
 import GameVideo from "../../videos/gamevideo.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function MyList() {
   const [myList, setMyList] = useState([]);
-  // const { _id } = useParams();
 
   if (!myList) {
     return (

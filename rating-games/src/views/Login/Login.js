@@ -19,7 +19,8 @@ export default function Login() {
     let response = await fetch("http://localhost:8080/login", {
       mode: "cors",
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json"},
+      // , "Authorization": window.localStorage.getItem("loggedIn")
       body: JSON.stringify({
         email: user.email,
         password: user.password,
@@ -27,13 +28,13 @@ export default function Login() {
     });
     let json = await response.json();
     window.localStorage.setItem("loggedIn", JSON.stringify(json));
-    console.log(json);
     setAuth(json);
   }
 
   function handleInputs(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
+
 
   function handleSubmit(e) {
     e.preventDefault();
