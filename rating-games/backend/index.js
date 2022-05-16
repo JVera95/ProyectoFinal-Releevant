@@ -162,49 +162,10 @@ app.get("/profile/:_id", function (req, res) {
 app.put("/editprofile/:_id", async function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
   MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
-  let myBody = req.body;
-  let _id = req.params._id;
+    let myBody = req.body;
+    let _id = req.params._id;
 
-  let database = client.db("RatingGames");
-
-    database
-      .collection("Users")
-      .findOne({ _id: ObjectId(_id) })
-      .then((doc) => {
-        database.collection("Users").updateOne(
-          { _id: ObjectId(_id) },
-          {
-            $set: {
-              
-                fullname: myBody.fullname,
-                username: myBody.username,
-                email: myBody.email,
-                password: myBody.password,
-              
-            },
-          }
-        );
-
-        database
-          .collection("Users")
-          .find()
-          .toArray((err, results) => {
-            if (err) throw err;
-            res.json(results);
-          });
-      }); 
-  });
-});
-
-// ----------------Sacar lista de favoritos de usuarios por id---------------
-
-app.put("/mylist/:_id", async function (req, res) {
-  res.set("Access-Control-Allow-Origin", "*");
-  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
-  let myBody = req.body;
-  let _id = req.params._id;
-
-  let database = client.db("RatingGames");
+    let database = client.db("RatingGames");
 
     database
       .collection("Users")
@@ -214,7 +175,10 @@ app.put("/mylist/:_id", async function (req, res) {
           { _id: ObjectId(_id) },
           {
             $set: {
-              mylist: myBody.mylist
+              fullname: myBody.fullname,
+              username: myBody.username,
+              email: myBody.email,
+              password: myBody.password,
             },
           }
         );
@@ -227,12 +191,46 @@ app.put("/mylist/:_id", async function (req, res) {
             res.json(results);
           });
       });
-    })
+  });
+});
+
+// ----------------Sacar lista de favoritos de usuarios por id---------------
+
+app.put("/mylist/:_id", async function (req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+  MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+    let myBody = req.body;
+    let _id = req.params._id;
+    let mylist = [];
+    console.log(myBody);
+
+    let database = client.db("RatingGames");
+
+    database
+      .collection("Users")
+      .findOne({ _id: ObjectId(_id) })
+      .then((doc) => {
+        database.collection("Users").updateOne(
+          { _id: ObjectId(_id) },
+          {
+            $set: {
+              mylist: mylist.push(myBody),
+            },
+          }
+        );
+
+        database
+          .collection("Users")
+          .find()
+          .toArray((err, results) => {
+            if (err) throw err;
+            res.json(results);
+          });
+      });
+  });
 });
 
 // --------Borrar juegos de la lista de favoritos de usuarios por id---------
-
-
 
 // -----------------Sacar los juegos de mayor a menor rating-----------------
 

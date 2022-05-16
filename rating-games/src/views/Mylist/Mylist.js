@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export default function MyList() {
-  const [myList, setMyList] = useState([])
-  const { _id } = useParams();
+  const [myList, setMyList] = useState([]);
+  // const { _id } = useParams();
 
   if (!myList) {
     return (
