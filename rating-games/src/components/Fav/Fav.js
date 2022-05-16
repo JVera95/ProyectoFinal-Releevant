@@ -15,15 +15,17 @@ export default function Fav() {
   const handleClick = (_id) => {
     if (!auth) return navigate("/login");
     async function fetchMyList() {
-      const res = await fetch("http://localhost:8080/mylist/favorite", {
-        mode: "cors",
-        method: "PUT",
-        headers: { "Content-Type": "application/json", "Authorization": window.localStorage.getItem("loggedIn")},
-        body: JSON.stringify({
-          _id: myList._id,
-          title: myList.title,
-        }),
-      });
+      const res = await fetch("http://localhost:8080/mylist/favorite"
+      // , {
+      //   mode: "cors",
+      //   method: "PUT",
+      //   headers: { "Content-Type": "application/json", "Authorization": window.localStorage.getItem("loggedIn")},
+      //   body: JSON.stringify({
+      //     _id: myList._id,
+      //     title: myList.title,
+      //   }),
+      // }
+      );
       const json = await res.json();
       setMyList(json);
     }
