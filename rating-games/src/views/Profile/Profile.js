@@ -14,7 +14,7 @@ export default function Profile() {
   const [newUser, setNewUser] = useState([]);
   const { _id } = useParams();
 
-  console.log({ user });
+  // console.log({ user });
 
   useEffect(() => {
     async function fetchUser() {
@@ -31,7 +31,7 @@ export default function Profile() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(newUser);
+    // console.log(newUser);
     let res = await fetch(`http://localhost:8080/editprofile/${_id}`, {
       mode: "cors",
       method: "PUT",
@@ -95,14 +95,14 @@ export default function Profile() {
                 Editar
               </button>
               <div
-                class="modal fade bd-example-modal-lg"
+                className="modal fade bd-example-modal-lg"
                 tabindex="-1"
                 role="dialog"
                 aria-labelledby="myLargeModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content bg-dark p-4">
+                <div className="modal-dialog modal-lg">
+                  <div className="modal-content bg-dark p-4">
                     <h3 className="titleprofile">Edita tus datos</h3>
                     <div className="content">
                       <form onSubmit={handleSubmit}>

@@ -195,9 +195,28 @@ app.put("/editprofile/:_id", async function (req, res) {
   });
 });
 
-// ----------------------Sacar lista de favoritos de usuario-------------------------
+// ----------------------Sacar lista favoritos------------------------------------
 
-app.put("/mylist/favorite", async function (req, res) {
+app.get("/mylist", function (req, res) {
+  conectar();
+  let games = [];
+  find(
+    "RatingGames",
+    "Fav",
+    {},
+    (game) => {
+      games.push(game);
+    },
+    function () {
+      res.send(games);
+    },
+    logError
+  );
+});
+
+// ----------------------Meter juegos a la lista favoritos-------------------------
+
+app.put("/addtomylist", async function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
   MongoClient.connect("mongodb://localhost:27017/", async (err, client) => {
     let myBody = req.body;

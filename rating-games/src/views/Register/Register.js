@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Powerslap from "../../videos/indexvideo720.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -45,6 +47,13 @@ export default function Register() {
       password: "",
     });
     navigate("/login");
+
+    Swal.fire({
+      title: "",
+      text: "Registro completado!",
+      icon: "success",
+      confirmButtonText: "Ok",
+    });
   }
 
   return (

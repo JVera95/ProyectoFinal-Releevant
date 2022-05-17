@@ -1,3 +1,4 @@
+import "./Platform.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -35,13 +36,13 @@ export default function Xbox() {
       <Navbar />
       <VideoBackground video={GameVideo} />
       <main>
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
+        <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-indicators">
             <button
               type="button"
               data-bs-target="#myCarousel"
               data-bs-slide-to="0"
-              class="active"
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
             ></button>
@@ -58,8 +59,8 @@ export default function Xbox() {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
               <img
                 src="https://www.comunidadxbox.com/wp-content/uploads/logo-de-Gears-of-War5-e1548746760629.jpg"
                 alt="gears5"
@@ -67,8 +68,8 @@ export default function Xbox() {
                   objectFit: "cover",
                 }}
               />
-              <div class="container">
-                <div class="carousel-caption text-start">
+              <div className="container">
+                <div className="carousel-caption text-start">
                   <h1>Gears 5</h1>
                   <p>
                     Gears 5 es un videojuego de acción en tercera persona
@@ -77,7 +78,7 @@ export default function Xbox() {
                   </p>
                   <p>
                     <a
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       href="https://www.gears5.com/"
                       target="_blank"
                       rel="noreferrer"
@@ -88,7 +89,7 @@ export default function Xbox() {
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src="https://cl.buscafs.com/www.levelup.com/public/uploads/images/728736/728736_1140x516.jpg"
                 alt="halo"
@@ -96,8 +97,8 @@ export default function Xbox() {
                   objectFit: "cover",
                 }}
               />
-              <div class="container">
-                <div class="carousel-caption text-start">
+              <div className="container">
+                <div className="carousel-caption text-start">
                   <h1>Halo Infinite</h1>
                   <p>
                     Halo Infinite es un videojuego de disparos en primera
@@ -107,7 +108,7 @@ export default function Xbox() {
                   </p>
                   <p>
                     <a
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       href="https://www.halowaypoint.com/es-es"
                       target="_blank"
                       rel="noreferrer"
@@ -118,7 +119,7 @@ export default function Xbox() {
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src="https://www.ginx.tv/uploads2/Sea_of_Thieves/Sea_of_Thieves_Season_3_Plunder_Pass/Dark_Brethren_Tall_Tale/The_Dark_Brethren_cover.webp"
                 alt="soth"
@@ -126,8 +127,8 @@ export default function Xbox() {
                   objectFit: "cover",
                 }}
               />
-              <div class="container">
-                <div class="carousel-caption text-start">
+              <div className="container">
+                <div className="carousel-caption text-start">
                   <h1>Sea of Thieves</h1>
                   <p>
                     Sea of Thieves es un videojuego de acción-aventura en
@@ -136,7 +137,7 @@ export default function Xbox() {
                   </p>
                   <p>
                     <a
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       href="https://www.seaofthieves.com/es"
                       target="_blank"
                       rel="noreferrer"
@@ -149,22 +150,28 @@ export default function Xbox() {
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Anterior</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Siguiente</span>
           </button>
         </div>
 
@@ -267,7 +274,12 @@ export default function Xbox() {
                   </p>
                 </div>
                 <div className="col-md-5 order-md-1">
-                  <img src={game.cover} width="100%" alt="gamecover" />
+                  <img
+                    src={game.cover}
+                    width="100%"
+                    alt="gamecover"
+                    className="cover"
+                  />
                 </div>
               </div>
               <hr className="featurette-divider" />
@@ -281,8 +293,8 @@ export default function Xbox() {
               &copy; 2022 Releevant, Vera
             </p>
 
-            <ul class="nav col-md-4 justify-content-end">
-              <li class="nav-item">
+            <ul className="nav col-md-4 justify-content-end">
+              <li className="nav-item">
                 <a
                   href="https://www.linkedin.com/in/jvera95/"
                   className="nav-link px-2 text-muted"
@@ -292,7 +304,7 @@ export default function Xbox() {
                   Linkedin
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
                   href="https://github.com/JVera95"
                   className="nav-link px-2 text-muted"
@@ -302,7 +314,7 @@ export default function Xbox() {
                   GitHub
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
                   href="https://twitter.com/JVera_95"
                   className="nav-link px-2 text-muted"
@@ -312,18 +324,18 @@ export default function Xbox() {
                   Twitter
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a href="#" className="nav-link px-2 text-muted">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-arrow-up-circle"
+                    className="bi bi-arrow-up-circle"
                     viewBox="0 0 16 16"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"
                     />
                   </svg>

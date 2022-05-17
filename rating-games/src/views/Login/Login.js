@@ -5,6 +5,8 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import Navbar from "../../components/Navbar";
 import Powerslap from "../../videos/indexvideo720.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default function Login() {
   const { setAuth } = useAuthContext();
@@ -19,7 +21,7 @@ export default function Login() {
     let response = await fetch("http://localhost:8080/login", {
       mode: "cors",
       method: "POST",
-      headers: { "Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       // , "Authorization": window.localStorage.getItem("loggedIn")
       body: JSON.stringify({
         email: user.email,
@@ -35,7 +37,6 @@ export default function Login() {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 
-
   function handleSubmit(e) {
     e.preventDefault();
     fetchApi(user);
@@ -44,6 +45,13 @@ export default function Login() {
       password: "",
     });
     navigate("/");
+
+    Swal.fire({
+      title: "",
+      text: "Bienvenido!",
+      icon: "success",
+      confirmButtonText: "Ok",
+    });
   }
 
   return (

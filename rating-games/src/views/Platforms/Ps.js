@@ -1,3 +1,4 @@
+import "./Platform.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -35,13 +36,13 @@ export default function Ps() {
       <Navbar />
       <VideoBackground video={GameVideo} />
       <main>
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
+        <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-indicators">
             <button
               type="button"
               data-bs-target="#myCarousel"
               data-bs-slide-to="0"
-              class="active"
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
             ></button>
@@ -58,8 +59,8 @@ export default function Ps() {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
               <img
                 src="https://tec.com.pe/wp-content/uploads/2021/01/hipertextual-the-last-of-us-part-ii-nos-ofrece-breve-vistazo-su-oscura-historia-su-nuevo-trailer-2020682431-scaled-1.jpg"
                 alt="tlou"
@@ -67,8 +68,8 @@ export default function Ps() {
                   objectFit: "cover",
                 }}
               />
-              <div class="container">
-                <div class="carousel-caption text-start">
+              <div className="container">
+                <div className="carousel-caption text-start">
                   <h1>The Last of Us 2</h1>
                   <p>
                     The Last of Us Part II es un videojuego de terror y de
@@ -77,7 +78,7 @@ export default function Ps() {
                   </p>
                   <p>
                     <a
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       href="https://www.naughtydog.com/blog/the_last_of_us_part_ii"
                       target="_blank"
                       rel="noreferrer"
@@ -88,7 +89,7 @@ export default function Ps() {
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src="https://image.api.playstation.com/vulcan/ap/rnd/202008/1420/HcLcfeQBXd2RiQaCeWQDCIFN.jpg"
                 alt="spiderman"
@@ -96,8 +97,8 @@ export default function Ps() {
                   objectFit: "cover",
                 }}
               />
-              <div class="container">
-                <div class="carousel-caption text-start">
+              <div className="container">
+                <div className="carousel-caption text-start">
                   <h1>Spider-Man Miles Morales</h1>
                   <p>
                     Marvel's Spider-Man: Miles Morales es un videojuego de
@@ -106,7 +107,7 @@ export default function Ps() {
                   </p>
                   <p>
                     <a
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       href="https://www.playstation.com/es-es/games/marvels-spider-man-miles-morales/"
                       target="_blank"
                       rel="noreferrer"
@@ -117,7 +118,7 @@ export default function Ps() {
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src="https://www.pixel4k.com/wp-content/uploads/2020/02/days-gone_1581271999.jpg"
                 alt="daysgone"
@@ -125,8 +126,8 @@ export default function Ps() {
                   objectFit: "cover",
                 }}
               />
-              <div class="container">
-                <div class="carousel-caption text-start">
+              <div className="container">
+                <div className="carousel-caption text-start">
                   <h1>Days Gone</h1>
                   <p>
                     Days Gone es un videojuego de terror y acción-aventura,
@@ -135,7 +136,7 @@ export default function Ps() {
                   </p>
                   <p>
                     <a
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       href="https://www.bendstudio.com/game/days-gone"
                       target="_blank"
                       rel="noreferrer"
@@ -148,22 +149,28 @@ export default function Ps() {
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Anterior</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Siguiente</span>
           </button>
         </div>
 
@@ -268,7 +275,12 @@ export default function Ps() {
                   </p>
                 </div>
                 <div className="col-md-5 order-md-1">
-                  <img src={game.cover} width="100%" alt="gamecover" />
+                  <img
+                    src={game.cover}
+                    width="100%"
+                    alt="gamecover"
+                    className="cover"
+                  />
                 </div>
               </div>
               <hr className="featurette-divider" />
@@ -282,8 +294,8 @@ export default function Ps() {
               &copy; 2022 Releevant, Vera
             </p>
 
-            <ul class="nav col-md-4 justify-content-end">
-              <li class="nav-item">
+            <ul className="nav col-md-4 justify-content-end">
+              <li className="nav-item">
                 <a
                   href="https://www.linkedin.com/in/jvera95/"
                   className="nav-link px-2 text-muted"
@@ -293,7 +305,7 @@ export default function Ps() {
                   Linkedin
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
                   href="https://github.com/JVera95"
                   className="nav-link px-2 text-muted"
@@ -303,7 +315,7 @@ export default function Ps() {
                   GitHub
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
                   href="https://twitter.com/JVera_95"
                   className="nav-link px-2 text-muted"
@@ -313,18 +325,18 @@ export default function Ps() {
                   Twitter
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a href="#" className="nav-link px-2 text-muted">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-arrow-up-circle"
+                    className="bi bi-arrow-up-circle"
                     viewBox="0 0 16 16"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"
                     />
                   </svg>
