@@ -31,7 +31,7 @@ function App() {
         {/*Protected Routes*/}
         <Route element={<RequireAuth />}>
           <Route path="profile/:_id" element={<Profile />} />
-          <Route path="mylist/:_id" element={<MyList />} />
+          <Route path="mylist" element={<MyList />} />
         </Route>
       </Route>
       {/*Missing Routes*/}

@@ -5,11 +5,13 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import Navbar from "../../components/Navbar";
 import GameVideo from "../../videos/gamevideo.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default function Profile() {
   const { auth, setAuth } = useAuthContext();
   const [user, setUser] = useState(null);
-  const [newUser, setNewUser] = useState([])
+  const [newUser, setNewUser] = useState([]);
   const { _id } = useParams();
 
   console.log({ user });
@@ -40,11 +42,17 @@ export default function Profile() {
         email: newUser.email,
         password: newUser.password,
       }),
-
     });
     let json = await res.json();
 
     setUser(json);
+
+    Swal.fire({
+      title: "Hecho!",
+      text: "Perfil modificado con exito!",
+      icon: "success",
+      confirmButtonText: "Ok",
+    });
   }
 
   if (!user) {
@@ -66,73 +74,93 @@ export default function Profile() {
       <Navbar />
       <VideoBackground video={GameVideo} />
       {user?.map((user) => (
-    <>
-  <div className="grid-7 element-animation">
-    <div className="card bg-dark">
-      <img src="https://www.citypng.com/public/uploads/small/11639594342hjraqgbufi3xlb66lt30fz1pwfcydxkjqbynfqdpvufz41ysjtngiet4dyrywgqqqqu56w5nozgrhyecs4ixrlllkl150ogbiid1.png" alt="profile-pic" className="profile"/>
-      <h1 className="titleprofile">{user.fullname}</h1>
-      <p className="content">{user.username}</p>
-      <p className="content">{user.email}</p>
-      <hr/>
-      <button className="buttonprofile" data-toggle="modal" data-target=".bd-example-modal-lg"> Editar</button>
-      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content bg-dark p-4">
-          <h3 className="titleprofile">Edita tus datos</h3>
-        <div className="content">
-          <form onSubmit={handleSubmit}>
-            <div className="user-details">
-              <div className="input-box">
-                <span className="details">Nombre</span>
-                <input
-                  type="text"
-                  placeholder="Introduce tu nombre"
-                  name="fullname"
-                  onChange={handleInputs}
-                  required
-                />
-              </div>
-              <div className="input-box">
-                <span className="details">Usuario</span>
-                <input
-                  type="text"
-                  placeholder="Introduce un nombre de usuario"
-                  name="username"
-                  onChange={handleInputs}
-                  required
-                />
-              </div>
-              <div className="input-box">
-                <span className="details">Email</span>
-                <input
-                  type="email"
-                  placeholder="Introduce un email"
-                  name="email"
-                  onChange={handleInputs}
-                  required
-                />
-              </div>
-              <div className="input-box">
-                <span className="details">Contraseña</span>
-                <input
-                  type="password"
-                  placeholder="Introduce una contraseña"
-                  name="password"
-                  onChange={handleInputs}
-                  required
-                />
+        <>
+          <div className="grid-7 element-animation">
+            <div className="card bg-dark">
+              <img
+                src="https://www.citypng.com/public/uploads/small/11639594342hjraqgbufi3xlb66lt30fz1pwfcydxkjqbynfqdpvufz41ysjtngiet4dyrywgqqqqu56w5nozgrhyecs4ixrlllkl150ogbiid1.png"
+                alt="profile-pic"
+                className="profile"
+              />
+              <h1 className="titleprofile">{user.fullname}</h1>
+              <p className="content">{user.username}</p>
+              <p className="content">{user.email}</p>
+              <hr />
+              <button
+                className="buttonprofile"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg"
+              >
+                {" "}
+                Editar
+              </button>
+              <div
+                class="modal fade bd-example-modal-lg"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myLargeModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content bg-dark p-4">
+                    <h3 className="titleprofile">Edita tus datos</h3>
+                    <div className="content">
+                      <form onSubmit={handleSubmit}>
+                        <div className="user-details">
+                          <div className="input-box">
+                            <span className="details">Nombre</span>
+                            <input
+                              type="text"
+                              placeholder="Introduce tu nombre"
+                              name="fullname"
+                              onChange={handleInputs}
+                              required
+                            />
+                          </div>
+                          <div className="input-box">
+                            <span className="details">Usuario</span>
+                            <input
+                              type="text"
+                              placeholder="Introduce un nombre de usuario"
+                              name="username"
+                              onChange={handleInputs}
+                              required
+                            />
+                          </div>
+                          <div className="input-box">
+                            <span className="details">Email</span>
+                            <input
+                              type="email"
+                              placeholder="Introduce un email"
+                              name="email"
+                              onChange={handleInputs}
+                              required
+                            />
+                          </div>
+                          <div className="input-box">
+                            <span className="details">Contraseña</span>
+                            <input
+                              type="password"
+                              placeholder="Introduce una contraseña"
+                              name="password"
+                              onChange={handleInputs}
+                              required
+                            />
+                          </div>
+                        </div>
+                        <button className="buttonprofile2" type="submit">
+                          {" "}
+                          Enviar
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <button className="buttonprofile2" type="submit"> Enviar</button>
-          </form>
-        </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </>
-  ))}
+        </>
+      ))}
     </>
   );
 }

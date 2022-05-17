@@ -10,7 +10,7 @@ export default function Navbar() {
   const handleClick = () => {
     logout();
   };
-  
+
   return (
     <nav
       className="navbar navbar-dark bg-dark font-monospace"
@@ -25,7 +25,7 @@ export default function Navbar() {
         </NavLink>
         {auth ? (
           <>
-            <NavLink to={`/mylist/${auth._id}`} className="navbar-brand navlink">
+            <NavLink to={"/mylist"} className="navbar-brand navlink">
               Mi Lista
             </NavLink>
             <NavLink
@@ -36,7 +36,11 @@ export default function Navbar() {
               Cerrar Sesión
             </NavLink>
             <NavLink to={`/profile/${auth._id}`} replace>
-              <img src="https://www.citypng.com/public/uploads/small/11639594342hjraqgbufi3xlb66lt30fz1pwfcydxkjqbynfqdpvufz41ysjtngiet4dyrywgqqqqu56w5nozgrhyecs4ixrlllkl150ogbiid1.png" alt="profile-pic" className="profilenavbar"/>
+              <img
+                src="https://www.citypng.com/public/uploads/small/11639594342hjraqgbufi3xlb66lt30fz1pwfcydxkjqbynfqdpvufz41ysjtngiet4dyrywgqqqqu56w5nozgrhyecs4ixrlllkl150ogbiid1.png"
+                alt="profile-pic"
+                className="profilenavbar"
+              />
             </NavLink>
           </>
         ) : (

@@ -1,33 +1,31 @@
 import "./Fav.css";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
 
-export default function Fav() {
-  const [myList, setMyList] = useState([]);
+export default function Fav({ game }) {
   const { _id } = useParams();
   const { auth } = useAuthContext();
   const navigate = useNavigate();
 
   const handleClick = (_id) => {
     if (!auth) return navigate("/login");
+    const { token } = JSON.parse(window.localStorage.getItem("loggedIn"));
     async function fetchMyList() {
-      const res = await fetch("http://localhost:8080/mylist/favorite"
-      // , {
-      //   mode: "cors",
-      //   method: "PUT",
-      //   headers: { "Content-Type": "application/json", "Authorization": window.localStorage.getItem("loggedIn")},
-      //   body: JSON.stringify({
-      //     _id: myList._id,
-      //     title: myList.title,
-      //   }),
-      // }
-      );
-      const json = await res.json();
-      setMyList(json);
+      await fetch("http://localhost:8080/mylist/favorite", {
+        mode: "cors",
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          title: game.title,
+          _id: game._id,
+        }),
+      });
     }
     fetchMyList();
 

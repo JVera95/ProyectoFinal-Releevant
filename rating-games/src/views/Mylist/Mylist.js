@@ -2,11 +2,20 @@ import "./Mylist.css";
 import Navbar from "../../components/Navbar";
 import GameVideo from "../../videos/gamevideo.mp4";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function MyList() {
   const [myList, setMyList] = useState([]);
+
+  useEffect(() => {
+    async function fetchMyList() {
+      const res = await fetch("http://localhost:8080/mylist/favorite");
+      const json = await res.json();
+      setMyList(json);
+    }
+    fetchMyList();
+  });
 
   if (!myList) {
     return (

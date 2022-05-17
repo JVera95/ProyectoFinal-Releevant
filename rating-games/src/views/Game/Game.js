@@ -52,19 +52,18 @@ export default function Game({ id }) {
                   <p className="text-muted mt-5">{game.genre}</p>
                   <p className="lead">{game.synopsis}</p>
                   <hr className="game-divider" />
-                  <p className="box2">{game.genre}</p>
                   <p className="box2">{game.company}</p>
                   <p className="box2">{game.gameModes}</p>
                   <p className="box2">{game.platform}</p>
                   <p className="box2">{game.date}</p>
                   <p className="favbuttongame">
-                    <Fav />
+                    <Fav game={game} />
                   </p>
                 </div>
                 <div className="col-md-5 order-md-1">
                   <img
                     src={game.cover}
-                    width="80%"
+                    width="100%"
                     alt="gamecover"
                     className="imgcover gamecover"
                   />

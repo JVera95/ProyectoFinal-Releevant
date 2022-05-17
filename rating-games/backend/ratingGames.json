@@ -151,7 +151,7 @@
     "company": "Epic Games",
     "images": ["https://cdn2.unrealengine.com/Fortnite%2Fchapter2%2F19_1011_Hideouts_And_Explosives_Screenshot-1920x1080-288a83bfd9ed67d075b142b52bc2351864fa0f13.png", "https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/05/fortnite-scaled.jpeg?fit=2560%2C1440&ssl=1", "https://i.blogs.es/ece53f/fortnite-04/840_560.jpg", "https://i.blogs.es/18a10f/fortnite-battle-royale/1366_521.jpeg"],
     "trailer": "https://www.youtube.com/embed/JdeClWe1Tnw",
-    "gameModes": "Battle Royale, Co-operative, Multiplayer, Single player, Split screen",
+    "gameModes": "Battle Royale, Multiplayer, Single player",
     "platform": "PS, XBOX, NINT, PC",
     "rating": 81
   },
