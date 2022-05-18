@@ -15,13 +15,10 @@ export const useAuthContext = () => {
 export default function AuthContextProvider({ children }) {
   const [auth, setAuth] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const [favs, setFavs] = useState([]);
   const navigate = useNavigate();
 
   const value = {
-    favs,
     auth,
-    setFavs,
     setAuth,
     errorMessage,
     logout,

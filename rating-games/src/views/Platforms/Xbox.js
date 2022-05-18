@@ -258,7 +258,7 @@ export default function Xbox() {
           <hr className="featurette-divider" />
 
           {xbox?.map((game) => (
-            <>
+            <div key={game._id}>
               <div className="row featurette">
                 <div className="col-md-7 order-md-2">
                   <h2 className="featurette-heading">{game.title}</h2>
@@ -283,7 +283,7 @@ export default function Xbox() {
                 </div>
               </div>
               <hr className="featurette-divider" />
-            </>
+            </div>
           ))}
         </div>
 

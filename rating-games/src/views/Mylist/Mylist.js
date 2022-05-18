@@ -18,8 +18,8 @@ export default function MyList() {
     fetchMyList();
   }, []);
 
-  // async function handleDelete(_id) {
-  //   let response = await fetch(`http://localhost:8080/delete/${_id}`, {
+  // async function handleDelete(id) {
+  //   let response = await fetch(`http://localhost:8080/deletefav/${id}`, {
   //     mode: "cors",
   //     method: "DELETE",
   //   });
@@ -45,9 +45,9 @@ export default function MyList() {
     <>
       <Navbar />
       <VideoBackground video={GameVideo} />
-        <h2 className="featurette-heading text-center mt-5">Mi lista de juegos</h2>
+      <h2 className="text-center mt-5">Mi lista de juegos</h2>
       <div className="container marketing mt-5">
-      <hr className="featurette-divider" />
+        <hr className="featurette-divider" />
         {myList &&
           myList.map((game) => (
             <>
@@ -62,7 +62,10 @@ export default function MyList() {
                       Más detalles &raquo;
                     </Link>
 
-                    {/* <button className="btn btn-danger buttonmylist mt-5" onClick={() => handleDelete(game._id)}>
+                    {/* <button
+                      className="btn btn-danger buttonmylist mt-5"
+                      onClick={() => handleDelete(game.id)}
+                    >
                       Eliminar de mi lista
                     </button> */}
                   </p>

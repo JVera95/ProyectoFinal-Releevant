@@ -1,6 +1,6 @@
 import "./Login.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 import Navbar from "../../components/Navbar";
 import Powerslap from "../../videos/indexvideo720.mp4";
@@ -10,12 +10,15 @@ import "sweetalert2/src/sweetalert2.scss";
 
 export default function Login() {
   const { setAuth } = useAuthContext();
+  const location = useLocation();
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   async function fetchApi(user) {
     let response = await fetch("http://localhost:8080/login", {
@@ -29,22 +32,31 @@ export default function Login() {
       }),
     });
     let json = await response.json();
-    window.localStorage.setItem("loggedIn", JSON.stringify(json));
-    setAuth(json);
+    if (response.status === 200) {
+      window.localStorage.setItem("loggedIn", JSON.stringify(json));
+      setAuth(json);
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Datos incorrectos.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
   }
 
   function handleInputs(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    fetchApi(user);
-    setUser({
-      email: "",
-      password: "",
-    });
-    navigate("/");
+    await fetchApi(user);
+    // setUser({
+    //   email: "",
+    //   password: "",
+    // });
+    navigate(from, { replace: true });
 
     Swal.fire({
       title: "",

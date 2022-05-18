@@ -39,7 +39,7 @@ export default function Game({ id }) {
       <VideoBackground video={GameVideo} />
       <div className="container-game bg-dark">
         {game?.map((game) => (
-          <>
+          <div key={game._id}>
             <main>
               <div className="row featurette">
                 <div className="col-md-7 order-md-2">
@@ -156,7 +156,7 @@ export default function Game({ id }) {
                 <span className="visually-hidden">Siguiente</span>
               </button>
             </div>
-          </>
+          </div>
         ))}
       </div>
     </>

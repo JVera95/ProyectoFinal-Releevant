@@ -37,7 +37,7 @@ export default function Toprating() {
       <div className="mt-3">
         <h2 className="text-center mt-5">Top juegos mejor valorados</h2>
         {rating?.map((game) => (
-          <ul className="list-group w-50 m-auto my-5">
+          <ul className="list-group w-50 m-auto my-5" key={game._id}>
             <li className="list-group-item list-group-item-dark">
               <span className="text-success">{game.rating} </span>
               <span>{game.title}</span>

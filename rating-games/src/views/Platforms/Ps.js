@@ -259,7 +259,7 @@ export default function Ps() {
           <hr className="featurette-divider" />
 
           {ps?.map((game) => (
-            <>
+            <div key={game._id}>
               <div className="row featurette">
                 <div className="col-md-7 order-md-2">
                   <h2 className="featurette-heading">{game.title}</h2>
@@ -284,7 +284,7 @@ export default function Ps() {
                 </div>
               </div>
               <hr className="featurette-divider" />
-            </>
+            </div>
           ))}
         </div>
 
