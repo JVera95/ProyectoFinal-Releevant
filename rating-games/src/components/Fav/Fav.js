@@ -24,6 +24,7 @@ export default function Fav({ game }) {
         body: JSON.stringify({
           title: game.title,
           _id: game._id,
+          cover: game.cover,
         }),
       });
     }

@@ -5,6 +5,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 const client = new MongoClient("mongodb://127.0.0.1:27017");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const { get } = require("http");
 
 async function conectar() {
   await client.connect();
@@ -239,6 +240,7 @@ app.put("/addtomylist", async function (req, res) {
       let newTitle = {
         id: myBody._id,
         title: myBody.title,
+        cover: myBody.cover,
       };
       fav.fav.push(newTitle);
       // console.log(fav);
@@ -248,7 +250,7 @@ app.put("/addtomylist", async function (req, res) {
     } else {
       let favorite = {
         user: decodedToken._id,
-        fav: [{ id: myBody._id, title: myBody.title }],
+        fav: [{ id: myBody._id, title: myBody.title, cover: myBody.cover, }],
       };
       await database.collection("Fav").insertOne(favorite);
     }
@@ -257,6 +259,32 @@ app.put("/addtomylist", async function (req, res) {
 });
 
 // --------Borrar juegos de la lista de favoritos de usuarios por id---------
+
+// app.delete("/delete/:_id", async function (req, res) {
+//   res.set("Access-Control-Allow-Origin", "*");
+//   MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
+//     let _id = req.params._id;
+
+//     let database = client.db("RatingGames");
+
+//     database
+//       .collection("Fav")
+//       .findOne({ _id: ObjectId(_id) })
+//       .then((doc) => {
+//         database.collection("Fav").deleteOne(
+//           { _id: ObjectId(_id) },
+//         );
+
+//         database
+//           .collection("Fav")
+//           .find()
+//           .toArray((err, results) => {
+//             if (err) throw err;
+//             res.json(results);
+//           });
+//       });
+//   });
+// });
 
 // -----------------Sacar los juegos de mayor a menor rating-----------------
 

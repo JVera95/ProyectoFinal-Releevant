@@ -18,6 +18,15 @@ export default function MyList() {
     fetchMyList();
   }, []);
 
+  // async function handleDelete(_id) {
+  //   let response = await fetch(`http://localhost:8080/delete/${_id}`, {
+  //     mode: "cors",
+  //     method: "DELETE",
+  //   });
+  //   let json = await response.json();
+  //   setMyList(json);
+  // }
+
   if (!myList) {
     return (
       <div className="text-center">
@@ -36,21 +45,39 @@ export default function MyList() {
     <>
       <Navbar />
       <VideoBackground video={GameVideo} />
-      <div className="mt-3">
-        <h2 className="text-center mt-5">Mi lista de juegos</h2>
+        <h2 className="featurette-heading text-center mt-5">Mi lista de juegos</h2>
+      <div className="container marketing mt-5">
+      <hr className="featurette-divider" />
         {myList &&
           myList.map((game) => (
-            <ul className="list-group w-50 m-auto my-5">
-              <li className="list-group-item list-group-item-dark">
-                <span>{game.title}</span>
-                <Link
-                  to={`/game/${game.id}`}
-                  className="btn btn-secondary position-absolute bottom-0 end-0"
-                >
-                  Más detalles &raquo;
-                </Link>
-              </li>
-            </ul>
+            <>
+              <div className="row featurette">
+                <div className="col-md-7 order-md-2">
+                  <h2 className="featurette-heading">{game.title}</h2>
+                  <p>
+                    <Link
+                      to={`/game/${game.id}`}
+                      className="btn btn-secondary mt-5"
+                    >
+                      Más detalles &raquo;
+                    </Link>
+
+                    {/* <button className="btn btn-danger buttonmylist mt-5" onClick={() => handleDelete(game._id)}>
+                      Eliminar de mi lista
+                    </button> */}
+                  </p>
+                </div>
+                <div className="col-md-5 order-md-1">
+                  <img
+                    src={game.cover}
+                    width="75%"
+                    alt="gamecover"
+                    className="imgcover covermylist"
+                  />
+                </div>
+              </div>
+              <hr className="featurette-divider" />
+            </>
           ))}
       </div>
     </>
