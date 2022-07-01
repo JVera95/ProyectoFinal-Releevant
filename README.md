@@ -1,4 +1,4 @@
-# Rating Games Web (EN PROCESO)
+# Rating Games Web V0.9
 
 _Web dedicada al rating e información sobre los videojuegos del pasado, presente y futuro, con multiples funcionalidades._
 
